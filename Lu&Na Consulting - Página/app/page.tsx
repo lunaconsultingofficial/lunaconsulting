@@ -1,6 +1,6 @@
 import Navbar from "@/components/navbar"
 import Hero from "@/components/hero"
-import FeaturedTimeline from "@/components/featured-timeline"
+import FeaturedTimeline from "@/components/featured-timeline-static"
 import Footer from "@/components/footer"
 import WhatsAppFAB from "@/components/whatsapp-fab"
 
