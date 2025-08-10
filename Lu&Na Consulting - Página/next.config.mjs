@@ -18,13 +18,13 @@ const nextConfig = {
         tls: false,
       }
     }
-    // Optimize build performance
-    config.optimization = {
-      ...config.optimization,
-      minimize: false,
-    }
     return config
   },
+  experimental: {
+    optimizePackageImports: ['@radix-ui/react-icons']
+  },
+  trailingSlash: false,
+  poweredByHeader: false,
 }
 
 export default nextConfig
