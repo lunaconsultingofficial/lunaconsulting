@@ -67,9 +67,25 @@ export function useImportedStocks() {
         if (config.inlineJson && config.inlineJson.trim().startsWith("[")) {
           data = JSON.parse(config.inlineJson) as Consolidated
         } else if (config.jsonUrl) {
-          const res = await fetch(config.jsonUrl, { cache: "no-store" })
-          if (!res.ok) throw new Error(`No se pudo leer el JSON (HTTP ${res.status})`)
-          data = (await res.json()) as Consolidated
+          const controller = new AbortController()
+          const timeoutId = setTimeout(() => controller.abort(), 10000) // 10s timeout
+
+          try {
+            const res = await fetch(config.jsonUrl, {
+              cache: "no-store",
+              signal: controller.signal
+            })
+            clearTimeout(timeoutId)
+
+            if (!res.ok) throw new Error(`No se pudo leer el JSON (HTTP ${res.status})`)
+            data = (await res.json()) as Consolidated
+          } catch (e: any) {
+            clearTimeout(timeoutId)
+            if (e.name === 'AbortError') {
+              throw new Error('Timeout: El JSON tardó demasiado en cargar')
+            }
+            throw e
+          }
         }
 
         if (!data) {
