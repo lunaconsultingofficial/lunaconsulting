@@ -1,3 +1,5 @@
+"use client"
+
 import { ArrowUpRight, Phone } from 'lucide-react'
 import { motion } from "framer-motion"
 import BackBar from "@/components/ui/back-bar"
