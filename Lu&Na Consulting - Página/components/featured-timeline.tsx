@@ -9,7 +9,7 @@ import WhatsAppButtons from "@/components/whatsapp-buttons"
 import { FocusImage } from "@/components/ui/focus-overlay"
 import { CARS_DEPT_PHONE_E164, CEO_PHONE_E164 } from "@/lib/phones"
 import PriceBadge from "@/components/ui/price-badge"
-import { useImportedStocks } from "@/hooks/use-imported-stocks"
+import { useImportedStocks } from "@/hooks/use-imported-stocks-simple"
 
 function isVideo(src?: string) {
   return !!src && /\.(mp4|webm|mov|m4v)$/i.test(src)
