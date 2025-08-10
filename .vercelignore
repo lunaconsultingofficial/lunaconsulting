@@ -1,0 +1,17 @@
+Recursos/
+README.md
+*.md
+.git/
+.gitignore
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.DS_Store
+*.log
+node_modules/
+.next/
+coverage/
+Lu&Na Consulting - Página/MULTI*
+Lu&Na Consulting - Página/.next/
+Lu&Na Consulting - Página/node_modules/

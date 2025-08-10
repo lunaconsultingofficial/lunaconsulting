@@ -1,0 +1,16 @@
+{
+  "buildCommand": "cd \"Lu&Na Consulting - Página\" && pnpm build",
+  "installCommand": "cd \"Lu&Na Consulting - Página\" && pnpm install",
+  "outputDirectory": "Lu&Na Consulting - Página/.next",
+  "framework": "nextjs",
+  "functions": {
+    "app/**": {
+      "maxDuration": 30
+    }
+  },
+  "build": {
+    "env": {
+      "NEXT_TELEMETRY_DISABLED": "1"
+    }
+  }
+}
