@@ -1,0 +1,87 @@
+import { motion } from "framer-motion"
+import WhatsAppPanel from "@/components/whatsapp-panel"
+import LetterboxImage from "@/components/ui/letterbox-image"
+import BackBar from "@/components/ui/back-bar"
+import { CEO_PHONE_E164, CRYPTO_DEPT_PHONE_E164 } from "@/lib/phones"
+
+const STACK = ["OTC desks", "Custodia", "Wallets", "Exchange APIs", "Analytics", "Compliance"]
+
+export default function CryptoPage() {
+  const phones = [
+    { label: "Dept. Crypto", number: CRYPTO_DEPT_PHONE_E164, hint: "+34 624 30 33 79" },
+    { label: "CEO", number: CEO_PHONE_E164, hint: "+34 642 04 00 91" },
+  ]
+
+  return (
+    <section className="relative overflow-hidden bg-[#0b1411] py-16 text-white">
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute left-1/2 top-0 h-[140%] w-px -translate-x-1/2 bg-emerald-500/10" />
+        <div className="absolute right-0 top-24 h-72 w-72 rounded-full bg-emerald-400/10 blur-3xl" />
+      </div>
+
+      <div className="container mx-auto max-w-7xl px-6">
+        <BackBar href="/services" label="Volver a Más Servicios" />
+
+        <div className="mx-auto max-w-4xl text-center">
+          <motion.h1 className="text-4xl font-extrabold tracking-tight md:text-6xl" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
+            Crypto
+          </motion.h1>
+          <motion.p className="mt-3 text-white/80" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
+            Intermediación en criptoactivos con foco en cierres seguros y rápidos. No custodiamos fondos ni gestionamos inversiones.
+          </motion.p>
+        </div>
+
+        {/* Pipeline con glow */}
+        <div className="mx-auto mt-12 grid max-w-6xl gap-6 md:grid-cols-3">
+          {[
+            { title: "Onboarding", desc: "Requisitos, alcance y tiempos." },
+            { title: "KYC/KYB", desc: "Verificación inicial con partners." },
+            { title: "Ejecución OTC", desc: "Coordinación con liquidez y cierre." },
+          ].map((b, i) => (
+            <motion.div
+              key={b.title}
+              initial={{ opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.45, delay: 0.06 * i }}
+              className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#0b1411] p-5"
+            >
+              <div className="pointer-events-none absolute -inset-px rounded-2xl ring-1 ring-emerald-400/20" />
+              <h3 className="text-lg font-semibold">{b.title}</h3>
+              <p className="mt-2 text-white/75">{b.desc}</p>
+              <div className="mt-4 h-1 w-16 rounded-full bg-gradient-to-r from-emerald-400/70 to-emerald-400/0" />
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Stack que usamos */}
+        <div className="mx-auto mt-10 max-w-6xl">
+          <div className="text-sm uppercase tracking-wide text-white/60">Stack que usamos</div>
+          <div className="mt-3 flex flex-wrap gap-2">
+            {STACK.map((s) => (
+              <span key={s} className="rounded-full border border-emerald-400/30 bg-emerald-500/10 px-3 py-1 text-sm text-emerald-200">
+                {s}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Galería 16:9 */}
+        <div className="mx-auto mt-8 grid max-w-6xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {[
+            { src: "/placeholder-zskj1.png", alt: "Mesa OTC" },
+            { src: "/kyc-document-review.png", alt: "Revisión documental" },
+            { src: "/blockchain-visual-network.png", alt: "Red blockchain" },
+          ].map((img) => (
+            <LetterboxImage key={img.alt} src={img.src} alt={img.alt} aspect="16/9" cover />
+          ))}
+        </div>
+
+        {/* Panel de WhatsApp con números destacados */}
+        <div className="mx-auto mt-12 max-w-5xl">
+          <WhatsAppPanel itemTitle="Servicio de Crypto" context="Servicios" phones={phones} defaultIndex={0} />
+        </div>
+      </div>
+    </section>
+  )
+}

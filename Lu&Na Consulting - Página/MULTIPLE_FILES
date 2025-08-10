@@ -1,0 +1,101 @@
+'use client'
+import { motion } from "framer-motion"
+import WhatsAppPanel from "@/components/whatsapp-panel"
+import LetterboxImage from "@/components/ui/letterbox-image"
+import BackBar from "@/components/ui/back-bar"
+import { CEO_PHONE_E164, CRYPTO_DEPT_PHONE_E164 } from "@/lib/phones"
+import { Button } from "@/components/ui/button"
+import { MessageCircle, Phone, Share2 } from 'lucide-react'
+import Link from 'next/link'
+
+const STACK = ["TradingView", "MetaTrader", "cTrader", "Sheets/Excel", "Notion", "Python"]
+
+function buildMessage(itemTitle?: string, context?: string) {
+const ref = context ? `[${context}] ${itemTitle || "oportunidad"}` : itemTitle || "oportunidad"
+return `Hola, estoy interesado en ${ref}. ¿Podrías enviarme más información?`
+}
+
+export default function TradingPage() {
+const phones = [
+  { label: "Dept. Crypto", number: CRYPTO_DEPT_PHONE_E164, hint: "Trading/Crypto" },
+  { label: "CEO", number: CEO_PHONE_E164, hint: "Principal" },
+]
+
+return (
+  <div className="relative">
+    <BackBar />
+    <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_rgba(16,185,129,0.18),transparent_60%)]" />
+    <div className="flex flex-col items-center justify-center min-h-screen">
+      <h1 className="text-4xl font-bold mb-8">Trading Services</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {STACK.map((item, index) => (
+          <LetterboxImage key={index} title={item} />
+        ))}
+      </div>
+      <div className="flex flex-wrap gap-2 mt-12">
+        {phones.map((phone, index) => (
+          <WhatsAppPanel key={index} phoneE164={phone.number} itemTitle={phone.label} context={phone.hint} />
+        ))}
+        <Button size="sm" className="bg-emerald-600 hover:bg-emerald-500">
+          <Link href="/stocks">View Stocks</Link>
+        </Button>
+      </div>
+    </div>
+  </div>
+)
+}
+
+export function WhatsAppPanel({
+itemTitle,
+context,
+phoneE164 = "34642040091",
+compact = true,
+}: {
+itemTitle?: string
+context?: string
+phoneE164?: string
+compact?: boolean
+}) {
+const size = compact ? "sm" : "default"
+const message = buildMessage(itemTitle, context)
+
+const openWhatsApp = () => {
+  const url = `https://wa.me/${phoneE164}?text=${encodeURIComponent(message)}`
+  window.open(url, "_blank", "noopener,noreferrer")
+}
+
+const callPhone = () => {
+  window.location.href = `tel:+${phoneE164}`
+}
+
+const share = async () => {
+  const shareData = { title: "WhatsApp", text: message }
+  try {
+    // @ts-expect-error: Web Share API
+    if (navigator?.share) { await navigator.share(shareData); return }
+    // Fallback genérico para WhatsApp sin número
+    const generic = `https://wa.me/?text=${encodeURIComponent(message)}`
+    window.open(generic, "_blank", "noopener,noreferrer")
+  } catch {
+    const generic = `https://wa.me/?text=${encodeURIComponent(message)}`
+    window.open(generic, "_blank", "noopener,noreferrer")
+  }
+}
+
+return (
+  <div className="flex flex-wrap gap-2">
+    <Button size={size} variant="outline" className="border-white/30 text-white hover:bg-white/10 bg-transparent" onClick={callPhone}>
+      <Phone className="mr-2 h-4 w-4" />
+      Llamar
+    </Button>
+    <Button size={size} variant="secondary" className="bg-emerald-500/15 text-emerald-200 hover:bg-emerald-500/25" onClick={share}>
+      <Share2 className="mr-2 h-4 w-4" />
+      Compartir
+    </Button>
+    <Button size={size} className="bg-emerald-600 hover:bg-emerald-500" onClick={openWhatsApp}>
+      <MessageCircle className="mr-2 h-4 w-4" />
+      WhatsApp
+    </Button>
+  </div>
+)
+}

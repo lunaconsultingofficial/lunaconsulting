@@ -1,0 +1,146 @@
+// components/navbar.tsx
+import React from 'react';
+import Link from 'next/link';
+import { Phone, MessageCircle } from 'react-feather';
+import { CEO_PHONE_E164 } from '../data/constants';
+
+const Navbar = () => {
+  return (
+    <nav>
+      {/* Desktop version */}
+      <div className="hidden md:flex">
+        <a
+          href={`tel:+${CEO_PHONE_E164}`}
+          className="group inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-3 py-1.5 text-sm text-white transition hover:bg-white/10"
+          aria-label="Llamar (CEO)"
+          title="Llamar (CEO)"
+        >
+          <Phone className="h-4 w-4 text-emerald-300" />
+          Call
+        </a>
+        <a
+          href={`https://wa.me/${CEO_PHONE_E164}`}
+          target="_blank"
+          className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-500/10 px-3 py-1.5 text-sm text-emerald-200 transition hover:bg-emerald-500/15"
+          aria-label="WhatsApp (CEO)"
+          title="WhatsApp (CEO)"
+        >
+          <MessageCircle className="h-4 w-4" />
+          WhatsApp
+        </a>
+      </div>
+
+      {/* Mobile version */}
+      <div className="md:hidden">
+        <a
+          href={`tel:+${CEO_PHONE_E164}`}
+          className="rounded-full border border-white/20 bg-white/5 px-3 py-1.5 text-sm text-white/80"
+        >
+          Call (CEO)
+        </a>
+        <a
+          href={`https://wa.me/${CEO_PHONE_E164}`}
+          target="_blank"
+          className="rounded-full border border-emerald-400/30 bg-emerald-500/10 px-3 py-1.5 text-sm text-emerald-200"
+        >
+          WhatsApp (CEO)
+        </a>
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;
+
+// components/hero.tsx
+import React from 'react';
+import Link from 'next/link';
+
+const Hero = () => {
+  return (
+    <section>
+      <h1>Welcome to our luxury car inventory</h1>
+      <Link href="/stocks">View Stocks</Link>
+    </section>
+  );
+};
+
+export default Hero;
+
+// data/stocks.ts
+import { StockItem } from '../types';
+
+export const stocks: StockItem[] = [
+  {
+    slug: "porsche-911-carrera",
+    title: "Porsche 911 Carrera",
+    category: "Luxury cars",
+    price: null,
+    currency: "EUR",
+    short: "Pure driving emotion — 911 Carrera. Detalles bajo solicitud.",
+    images: [{ src: "/images/porsche-911-carrera.png", alt: "Porsche 911 Carrera" }],
+  },
+  {
+    slug: "mercedes-benz",
+    title: "Mercedes‑Benz",
+    category: "Luxury cars",
+    price: null,
+    currency: "EUR",
+    short: "Selección Mercedes‑Benz. Unidades y specs a confirmar.",
+    images: [{ src: "/images/mercedes-benz.png", alt: "Mercedes‑Benz luxury" }],
+  },
+  {
+    slug: "rolls-royce-phantom-mansory",
+    title: "Rolls‑Royce Phantom by Mansory",
+    category: "Luxury cars",
+    price: null,
+    currency: "EUR",
+    short: "Oportunidad rara — Phantom personalizado por Mansory.",
+    images: [{ src: "/images/rolls-royce-phantom-mansory.png", alt: "Rolls‑Royce Phantom by Mansory" }],
+  },
+  {
+    slug: "mercedes-maybach",
+    title: "Mercedes‑Maybach",
+    category: "Luxury cars",
+    price: null,
+    currency: "EUR",
+    short: "Luxury redefined. Configuraciones a medida.",
+    images: [{ src: "/images/mercedes-maybach.png", alt: "Mercedes‑Maybach" }],
+  },
+  {
+    slug: "luxury-yacht-exclusive",
+    title: "Luxury Yacht (exclusive)",
+    category: "Inventory",
+    price: null,
+    currency: "EUR",
+    short: "Yate de lujo — oferta exclusiva para compradores exigentes.",
+    images: [{ src: "/images/luxury-yacht.png", alt: "Luxury yacht exclusive" }],
+  },
+  {
+    slug: "koenigsegg-jesko-2025-white",
+    title: "Koenigsegg Jesko 2025 (white)",
+    category: "Luxury cars",
+    price: null,
+    currency: "EUR",
+    short: "El pináculo de la ingeniería hypercar. Unidad 2025 blanca.",
+    images: [{ src: "/images/koenigsegg-jesko-white.png", alt: "Koenigsegg Jesko blanco 2025" }],
+  },
+  {
+    slug: "ferrari-daytona-sp3-2024-grigio",
+    title: "Ferrari Daytona SP3 2024 (Grigio)",
+    category: "Luxury cars",
+    price: null,
+    currency: "EUR",
+    short: "Daytona SP3 2024 con acabado Grigio. Serie limitada.",
+    images: [{ src: "/images/ferrari-daytona-sp3-grigio.png", alt: "Ferrari Daytona SP3 2024 Grigio" }],
+  },
+  {
+    slug: "brabus-vehicle-stock",
+    title: "Brabus vehicle stock",
+    category: "Luxury cars",
+    price: null,
+    currency: "EUR",
+    short: "Stock de vehículos Brabus disponible. Consulta unidades.",
+    images: [{ src: "/images/brabus-stock.png", alt: "Brabus vehicle stock" }],
+  },
+];

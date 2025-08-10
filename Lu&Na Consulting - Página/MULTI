@@ -1,0 +1,754 @@
+// components/navbar.tsx
+import React from 'react';
+import { NavLinks } from './NavLinks';
+import { Phone, MessageCircle } from 'lucide-react';
+import { motion } from 'framer-motion';
+
+const CEO_PHONE_E164 = '+1234567890';
+
+export default function Navbar() {
+  return (
+    <nav className="bg-gray-800 p-4">
+      <div className="container mx-auto flex items-center justify-between">
+        {/* Logo or Brand Name */}
+        <div className="text-white font-bold text-lg">Brand Name</div>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden items-center gap-3 md:flex">
+          <NavLinks />
+          <a
+            href={`tel:+${CEO_PHONE_E164}`}
+            className="group inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-3 py-1.5 text-sm text-white/85 transition hover:bg-white/10"
+            aria-label="Llamar (CEO)"
+            title="Llamar (CEO)"
+          >
+            <Phone className="h-4 w-4 text-emerald-300" />
+            Call
+          </a>
+          <a
+            href={`https://wa.me/${CEO_PHONE_E164}`}
+            target="_blank"
+            className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-500/10 px-3 py-1.5 text-sm text-emerald-200 transition hover:bg-emerald-500/15"
+            aria-label="WhatsApp (CEO)"
+            title="WhatsApp (CEO)"
+          >
+            <MessageCircle className="h-4 w-4" />
+            WhatsApp
+          </a>
+        </nav>
+
+        {/* Mobile Navigation */}
+        <div className="md:hidden">
+          {/* Mobile Menu Button */}
+          <button className="text-white">
+            ☰
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Sheet */}
+      <div className="md:hidden">
+        <div className="flex items-center gap-2 pt-2">
+          <a
+            href={`tel:+${CEO_PHONE_E164}`}
+            className="rounded-full border border-white/20 bg-white/5 px-3 py-1.5 text-sm text-white/80"
+          >
+            Call
+          </a>
+          <a
+            href={`https://wa.me/${CEO_PHONE_E164}`}
+            target="_blank"
+            className="rounded-full border border-emerald-400/30 bg-emerald-500/10 px-3 py-1.5 text-sm text-emerald-200"
+          >
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </nav>
+  );
+}
+
+// components/whatsapp-fab.tsx
+import React from 'react';
+import { MessageCircle } from 'lucide-react';
+import { motion } from 'framer-motion';
+
+const CEO_PHONE_E164 = '+1234567890';
+
+export default function WhatsAppFAB() {
+  return (
+    <motion.a
+      href={`https://wa.me/${CEO_PHONE_E164}`}
+      target="_blank"
+      className="fixed bottom-5 right-5 z-[70] inline-flex h-14 w-14 items-center justify-center rounded-full border border-emerald-400/60 bg-emerald-600/30 text-emerald-100 shadow-[0_0_25px_rgba(16,185,129,0.45)] backdrop-blur transition hover:bg-emerald-600/40"
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
+      whileHover={{ scale: 1.06 }}
+      whileTap={{ scale: 0.95 }}
+      aria-label="Abrir WhatsApp"
+    >
+      <MessageCircle className="h-6 w-6" />
+    </motion.a>
+  );
+}
+
+// components/hero.tsx
+"use client"
+
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { motion } from "framer-motion"
+import ImageFader from "./ui/image-fader"
+
+const heroSlides = [
+  { src: "/images/jet-exterior-white-2.jpg", alt: "Jet ejecutivo en pista" },
+  { src: "/images/villa-garden-night.jpg", alt: "Villa con jardín iluminado" },
+  { src: "/images/boat-marina.jpg", alt: "Lancha en puerto deportivo" },
+  { src: "/images/farm2.jpg", alt: "Campos agrícolas en hileras" },
+]
+
+export default function Hero() {
+  return (
+    <section className="relative isolate -mt-2 overflow-hidden pb-10 pt-24 md:pb-16 md:pt-28">
+      <div className="container mx-auto max-w-7xl px-6">
+        <div className="relative">
+          <div className="mx-auto max-w-7xl">
+            <ImageFader images={heroSlides} className="rounded-3xl" />
+          </div>
+          <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+            <div className="pointer-events-auto mx-auto max-w-3xl text-center">
+              <motion.h1
+                className="text-balance text-4xl font-extrabold tracking-tight text-white md:text-6xl"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.15 }}
+                style={{ textShadow: "0 0 16px rgba(16,185,129,.30), 0 0 28px rgba(16,185,129,.18)" }}
+              >
+                <span className="bg-gradient-to-b from-emerald-200 via-emerald-300 to-emerald-400 bg-clip-text text-transparent">
+                  LU&amp;NA CONSULTING
+                </span>
+              </motion.h1>
+              <motion.p
+                className="mt-4 max-w-2xl text-pretty text-base text-white/85 md:mx-auto md:text-lg"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.25 }}
+              >
+                Intermediación B2B: conectamos compradores y vendedores verificados en energía, industria, agro,
+                real&nbsp;estate y retail.
+              </motion.p>
+              <motion.div
+                className="mt-8 flex flex-wrap items-center justify-center gap-3"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.35 }}
+              >
+                <Button asChild size="lg" className="rounded-full bg-emerald-600 px-6 hover:bg-emerald-500">
+                  <Link href="/stocks">View Stocks</Link>
+                </Button>
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="rounded-full border-white/30 bg-white/10 px-6 text-white hover:bg-white/20"
+                >
+                  <Link href="#featured">View featured</Link>
+                </Button>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+// data/stocks.ts
+export const stocks = [
+  // Existing stocks here
+  {
+    slug: "porsche-911-carrera",
+    title: "Porsche 911 Carrera — Pure driving emotion",
+    category: "Luxury cars",
+    price: null,
+    currency: "EUR",
+    short: "Porsche 911 Carrera. Detalles y specs bajo solicitud.",
+    images: [{ src: "/images/porsche-911-carrera.png", alt: "Porsche 911 Carrera silver exterior" }],
+  },
+  {
+    slug: "mercedes-benz-selection",
+    title: "Mercedes‑Benz — Selection",
+    category: "Luxury cars",
+    price: null,
+    currency: "EUR",
+    short: "Selección Mercedes‑Benz. Unidades y configuraciones a confirmar.",
+    images: [{ src: "/images/mercedes-benz-selection.png", alt: "Mercedes‑Benz luxury selection" }],
+  },
+  {
+    slug: "rolls-royce-phantom-mansory",
+    title: "Rolls‑Royce Phantom by Mansory — Bespoke",
+    category: "Luxury cars",
+    price: null,
+    currency: "EUR",
+    short: "Oportunidad rara: Phantom personalizado por Mansory.",
+    images: [{ src: "/images/rolls-royce-phantom-mansory.png", alt: "Rolls‑Royce Phantom by Mansory bespoke" }],
+  },
+  {
+    slug: "mercedes-maybach-luxury-redefined",
+    title: "Mercedes‑Maybach — Luxury redefined",
+    category: "Luxury cars",
+    price: null,
+    currency: "EUR",
+    short: "Maybach con lujo redefinido. Disponible bajo solicitud.",
+    images: [{ src: "/images/mercedes-maybach-luxury.png", alt: "Mercedes‑Maybach luxury" }],
+  },
+  {
+    slug: "luxury-yacht-exclusive",
+    title: "Luxury Yacht — Exclusive offering",
+    category: "Inventory",
+    price: null,
+    currency: "EUR",
+    short: "Yate de lujo — oferta exclusiva para compradores exigentes.",
+    images: [{ src: "/images/luxury-yacht-exclusive.png", alt: "Exclusive luxury yacht exterior" }],
+  },
+  {
+    slug: "koenigsegg-jesko-2025-white",
+    title: "Koenigsegg Jesko 2025 (White)",
+    category: "Luxury cars",
+    price: null,
+    currency: "EUR",
+    short: "El pináculo de la ingeniería hypercar. Unidad 2025 blanca.",
+    images: [{ src: "/images/koenigsegg-jesko-2025-white.png", alt: "Koenigsegg Jesko 2025 white" }],
+  },
+  {
+    slug: "ferrari-daytona-sp3-2024-grigio",
+    title: "Ferrari Daytona SP3 2024 (Grigio)",
+    category: "Luxury cars",
+    price: null,
+    currency: "EUR",
+    short: "Daytona SP3 2024 en acabado Grigio. Serie limitada.",
+    images: [{ src: "/images/ferrari-daytona-sp3-2024-grigio.png", alt: "Ferrari Daytona SP3 2024 Grigio" }],
+  },
+  {
+    slug: "brabus-vehicle-stock-exclusive",
+    title: "Brabus vehicle stock — Exclusive opportunity",
+    category: "Luxury cars",
+    price: null,
+    currency: "EUR",
+    short: "Stock de vehículos Brabus disponible. Consulta unidades.",
+    images: [{ src: "/images/brabus-vehicle-stock.png", alt: "Brabus vehicle stock" }],
+  },
+];
+
+// components/stock-grid.tsx
+"use client"
+
+import { useMemo, useState } from "react"
+import { stocks, type StockCategory } from "@/data/stocks"
+import { Card, CardContent, CardHeader } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import LetterboxImage from "@/components/ui/letterbox-image"
+import Link from "next/link"
+import { formatPrice } from "@/lib/format"
+import { motion } from "framer-motion"
+import BackBar from "@/components/ui/back-bar"
+import { CARS_DEPT_PHONE_E164, CEO_PHONE_E164 } from "@/lib/phones"
+import PriceBadge from "@/components/ui/price-badge"
+import QuickWAButton from "@/components/quick-wa-button"
+import { buildProductMessage } from "@/lib/wa"
+import { Eye } from 'lucide-react'
+
+const HIDDEN: StockCategory[] = ["Aircraft", "Commodities"]
+const ALL_VISIBLE = stocks.filter((s) => !HIDDEN.includes(s.category))
+const CATEGORIES = ["Todos", ...Array.from(new Set(ALL_VISIBLE.map((s) => s.category)))] as const
+
+export default function StockGrid() {
+  const [active, setActive] = useState<(typeof CATEGORIES)[number]>("Todos")
+
+  const counts = useMemo(() => {
+    const map = new Map<string, number>()
+    for (const s of ALL_VISIBLE) map.set(s.category, (map.get(s.category) || 0) + 1)
+    return map
+  }, [])
+
+  const list = useMemo(
+    () => (active === "Todos" ? ALL_VISIBLE : ALL_VISIBLE.filter((s) => s.category === active)),
+    [active]
+  )
+
+  return (
+    <section id="stocks" className="relative overflow-hidden bg-[#0e1915] py-16 text-white">
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute left-1/2 top-0 h-[140%] w-px -translate-x-1/2 bg-emerald-500/10" />
+        <div className="absolute left-8 top-10 h-px w-[calc(100%-4rem)] bg-emerald-500/10" />
+        <div className="absolute bottom-8 right-8 h-px w-[calc(100%-4rem)] bg-emerald-500/10" />
+      </div>
+
+      <div className="container relative z-10 mx-auto max-w-7xl px-6">
+        <BackBar href="/" label="Volver al inicio" />
+
+        <div className="mx-auto max-w-4xl text-center">
+          <h1
+            className="text-5xl font-extrabold leading-tight tracking-tight md:text-7xl"
+            style={{ textShadow: "0 0 14px rgba(16,185,129,.28), 0 0 26px rgba(16,185,129,.18)" }}
+          >
+            <span className="bg-gradient-to-b from-emerald-200 via-emerald-300 to-emerald-400 bg-clip-text text-transparent">
+              Stocks
+            </span>
+          </h1>
+          <p className="mt-4 text-white/80">Filtra por categoría, abre las imágenes y consulta por WhatsApp.</p>
+        </div>
+
+        {/* Filtros */}
+        <div className="mx-auto mt-10 flex max-w-full flex-wrap justify-center gap-2">
+          {CATEGORIES.map((c) => (
+            <button
+              key={c}
+              onClick={() => setActive(c)}
+              className={`rounded-full border px-4 py-1.5 text-sm transition ${
+                active === c
+                  ? "border-emerald-400/40 bg-emerald-500/15 text-emerald-100"
+                  : "border-white/20 bg-white/5 text-white/70 hover:bg-white/10"
+              }`}
+            >
+              {c}{" "}
+              {c !== "Todos" ? (
+                <span className="ml-1 text-white/50">({counts.get(c as string) || 0})</span>
+              ) : (
+                <span className="ml-1 text-white/50">({ALL_VISIBLE.length})</span>
+              )}
+            </button>
+          ))}
+        </div>
+
+        {/* Grid */}
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {list.map((item, i) => {
+            const isCars = item.category === "Luxury cars"
+            const origin = typeof window !== "undefined" ? window.location.origin : ""
+            const detailsUrl = `${origin}/stocks/${item.slug}`
+            const quickMsg = buildProductMessage({
+              title: item.title,
+              category: item.category,
+              url: detailsUrl,
+              intent: "consulta",
+            })
+            const quickPhone = isCars ? CARS_DEPT_PHONE_E164 : CEO_PHONE_E164
+            const quickLabel = isCars ? "WhatsApp (Dept. Coches)" : "WhatsApp (CEO)"
+
+            return (
+              <motion.div
+                key={item.slug}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.4, delay: i * 0.03 }}
+              >
+                <Card className="overflow-hidden border border-white/10 bg-[#0b1411]">
+                  <CardHeader className="relative p-0">
+                    <LetterboxImage
+                      src={item.images[0]?.src || "/placeholder.svg?height=720&width=1280&query=stock-image"}
+                      alt={item.images[0]?.alt || item.title}
+                      sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
+                      aspect="16/9"
+                      cover
+                    />
+                    <div className="absolute left-3 top-3 flex items-center gap-2">
+                      <Badge className="bg-emerald-600 text-white">{item.category}</Badge>
+                      <PriceBadge value={formatPrice(item.price, item.currency)} />
+                    </div>
+                  </CardHeader>
+                  <CardContent className="space-y-3 p-4">
+                    <h3 className="line-clamp-2">
+                      <span
+                        className="text-[1.25rem] font-extrabold leading-snug tracking-tight md:text-[1.5rem]"
+                        style={{ textShadow: "0 0 10px rgba(16,185,129,.25), 0 0 18px rgba(16,185,129,.15)" }}
+                      >
+                        <span className="bg-gradient-to-b from-emerald-200 via-emerald-300 to-emerald-400 bg-clip-text text-transparent">
+                          {item.title}
+                        </span>
+                      </span>
+                    </h3>
+                    {item.short ? <p className="mt-1 line-clamp-3 text-sm text-white/75">{item.short}</p> : null}
+
+                    {/* CTA: botones premium */}
+                    <div className="mt-3 flex flex-wrap items-center gap-2">
+                      <Link
+                        href={`/stocks/${item.slug}`}
+                        className="inline-flex items-center gap-2 rounded-full border border-emerald-400/40 bg-emerald-600 px-3.5 py-2 text-sm font-medium text-white shadow-[0_0_14px_rgba(16,185,129,0.25)_inset] transition hover:bg-emerald-500"
+                        aria-label="Ver detalles"
+                      >
+                        <Eye className="h-4 w-4" />
+                        Ver detalles
+                      </Link>
+                      <QuickWAButton phoneE164={quickPhone} message={quickMsg} label={quickLabel} />
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            )
+          })}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+// components/featured-timeline.tsx
+"use client"
+
+import { stocks } from "@/data/stocks"
+import Image from "next/image"
+import { motion } from "framer-motion"
+import { Badge } from "@/components/ui/badge"
+import { formatPrice } from "@/lib/format"
+import WhatsAppButtons from "@/components/whatsapp-buttons"
+import { FocusImage } from "@/components/ui/focus-overlay"
+import { CARS_DEPT_PHONE_E164, CEO_PHONE_E164 } from "@/lib/phones"
+import PriceBadge from "@/components/ui/price-badge"
+
+function pickByCategory(maxPerCat = 3) {
+  const cats = ["Luxury cars", "Inventory", "Real estate"] as const
+  const list: typeof stocks = []
+  for (const c of cats) {
+    const inCat = stocks.filter((s) => s.category === c)
+    // Prioriza los ya marcados como featured si existen
+    const pri = inCat.filter((s) => s.featured)
+    const rest = inCat.filter((s) => !s.featured)
+    list.push(...pri.slice(0, maxPerCat), ...rest.slice(0, Math.max(0, maxPerCat - pri.length)))
+  }
+  // Limpia duplicados y excluye categorías ocultas
+  const unique = list.filter(
+    (s, i, arr) => i === arr.findIndex((t) => t.slug === s.slug) && s.category !== "Aircraft" && s.category !== "Commodities"
+  )
+  return unique.slice(0, 9)
+}
+
+export default function FeaturedTimeline() {
+  const featured = pickByCategory(3)
+  return (
+    <section id="featured" className="relative overflow-hidden py-24">
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-emerald-500/12" />
+      </div>
+
+      <div className="container relative z-10 mx-auto max-w-7xl px-6 text-white">
+        <div className="mx-auto mb-14 max-w-3xl text-center">
+          <h2
+            className="text-3xl font-extrabold tracking-tight md:text-5xl"
+            style={{ textShadow: "0 0 14px rgba(16,185,129,.28), 0 0 26px rgba(16,185,129,.18)" }}
+          >
+            <span className="bg-gradient-to-b from-emerald-200 via-emerald-300 to-emerald-400 bg-clip-text text-transparent">
+              Featured
+            </span>
+          </h2>
+          <p className="mt-3 text-white/70">Más selección curada por categoría.</p>
+        </div>
+
+        <div className="mx-auto max-w-6xl">
+          {featured.map((item, i) => {
+            const left = i % 2 === 0
+            const phone = item.category === "Luxury cars" ? CARS_DEPT_PHONE_E164 : CEO_PHONE_E164
+            return (
+              <motion.div
+                key={item.slug}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6 }}
+                className="relative grid items-center gap-6 py-10 md:grid-cols-2"
+              >
+                <div className="absolute left-1/2 top-1/2 h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-emerald-400/90 shadow-[0_0_0_6px_rgba(16,185,129,0.12)]" />
+
+                <div className={`${left ? "md:order-1" : "md:order-2"} order-1`}>
+                  <div className="relative mx-auto aspect-[16/9] w-full max-w-xl overflow-hidden rounded-2xl border border-white/10 bg-black">
+                    <Image
+                      src={item.images[0]?.src || "/placeholder.svg?height=720&width=1280&query=featured"}
+                      alt=""
+                      fill
+                      className="scale-110 object-cover blur-2xl opacity-40"
+                      aria-hidden
+                    />
+                    <Image
+                      src={item.images[0]?.src || "/placeholder.svg?height=720&width=1280&query=featured"}
+                      alt={item.images[0]?.alt || item.title}
+                      fill
+                      className="object-cover transition-transform duration-500 hover:scale-[1.04]"
+                    />
+                    <FocusImage
+                      src={item.images[0]?.src || "/placeholder.svg?height=720&width=1280&query=featured"}
+                      alt={item.images[0]?.alt || item.title}
+                      className="absolute inset-0"
+                    />
+                    <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/10" />
+                  </div>
+                </div>
+
+                <div className={`${left ? "md:order-2 md:pl-10" : "md:order-1 md:pr-10"} order-2`}>
+                  <div className="flex flex-wrap items-center gap-3">
+                    <Badge className="bg-emerald-600 text-white">{item.category}</Badge>
+                    <PriceBadge value={formatPrice(item.price, item.currency)} />
+                  </div>
+                  <h3
+                    className="mt-2 text-2xl font-extrabold md:text-3xl"
+                    style={{ textShadow: "0 0 10px rgba(16,185,129,.25), 0 0 18px rgba(16,185,129,.15)" }}
+                  >
+                    <span className="bg-gradient-to-b from-emerald-200 via-emerald-300 to-emerald-400 bg-clip-text text-transparent">
+                      {item.title}
+                    </span>
+                  </h3>
+                  {item.short ? <p className="mt-2 text-white/75">{item.short}</p> : null}
+                  <div className="mt-4">
+                    <WhatsAppButtons itemTitle={item.title} context="Featured" phoneE164={phone} compact />
+                  </div>
+                </div>
+              </motion.div>
+            )
+          })}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+// components/whatsapp-panel.tsx
+"use client"
+
+import { useEffect, useMemo, useRef, useState } from "react"
+import { MessageCircle, Phone, Copy, Send, BadgeCheck, Sparkles, Clock } from 'lucide-react'
+import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
+import { buildProductMessage, buildWhatsAppUrl } from "@/lib/wa"
+
+type PhoneOption = { label: string; number: string } // sin hints visibles
+
+export default function WhatsAppPanel({
+  itemTitle,
+  context,
+  phones,
+  defaultIndex = 0,
+  href,
+}: {
+  itemTitle: string
+  context?: string
+  phones: PhoneOption[]
+  defaultIndex?: number
+  href?: string
+}) {
+  const [idx, setIdx] = useState(defaultIndex)
+  const [mode, setMode] = useState<"consulta" | "estado" | "comprar">("consulta")
+  const [custom, setCustom] = useState("")
+  const inputRef = useRef<HTMLInputElement | null>(null)
+
+  const selected = phones[idx]
+
+  const template = useMemo(
+    () =>
+      buildProductMessage({
+        title: itemTitle,
+        category: context,
+        url: href,
+        intent: mode,
+      }),
+    [itemTitle, context, href, mode]
+  )
+
+  const message = custom.trim()
+    ? `${custom.trim()} — Ref: ${context ? `[${context}] ${itemTitle}` : itemTitle}${href ? ` ${href}` : ""}`
+    : template
+
+  const openWhatsApp = () => {
+    const url = buildWhatsAppUrl(selected.number, message)
+    window.open(url, "_blank", "noopener,noreferrer")
+  }
+
+  const call = () => {
+    window.location.href = `tel:+${selected.number}`
+  }
+
+  const copy = async () => {
+    try {
+      await navigator.clipboard.writeText(message)
+    } catch {}
+  }
+
+  useEffect(() => {
+    const el = inputRef.current
+    if (!el) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Enter") openWhatsApp()
+    }
+    el.addEventListener("keydown", onKey)
+    return () => el.removeEventListener("keydown", onKey)
+  }, [])
+
+  return (
+    <div className="rounded-2xl border border-white/10 bg-[#0b1411] p-4 text-sm text-white ring-1 ring-emerald-400/10">
+      {/* Header alias + “estado de servicio” */}
+      <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
+        <div className="flex items-center gap-2">
+          <div className="inline-flex h-8 items-center justify-center rounded-full border border-emerald-400/40 bg-emerald-500/10 px-3 text-emerald-200">
+            <MessageCircle className="mr-2 h-4 w-4" />
+            {selected.label}
+          </div>
+          <span className="inline-flex items-center gap-1 rounded-full border border-white/15 bg-white/5 px-2 py-1 text-[11px] text-white/70">
+            <BadgeCheck className="h-3.5 w-3.5 text-emerald-300" /> Respuesta rápida
+          </span>
+          <span className="inline-flex items-center gap-1 rounded-full border border-white/15 bg-white/5 px-2 py-1 text-[11px] text-white/70">
+            <Clock className="h-3.5 w-3.5 text-emerald-300" /> Horario CET
+          </span>
+        </div>
+
+        {/* Alias selector (sin números, sin title) */}
+        <div className="flex flex-wrap gap-2">
+          {phones.map((p, i) => (
+            <button
+              key={p.label}
+              onClick={() => setIdx(i)}
+              className={cn(
+                "rounded-full px-3 py-1.5 text-xs transition",
+                i === idx
+                  ? "border border-emerald-400/50 bg-emerald-600 text-white"
+                  : "border border-white/20 bg-white/5 text-white/80 hover:bg-white/10"
+              )}
+              aria-pressed={i === idx}
+              aria-label={`Elegir ${p.label}`}
+            >
+              {p.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Modos (segmented control) */}
+      <div className="mb-3 flex w-full overflow-hidden rounded-full border border-white/15 bg-white/5 p-1">
+        {(["consulta", "estado", "comprar"] as const).map((m) => (
+          <button
+            key={m}
+            onClick={() => setMode(m)}
+            className={cn(
+              "flex-1 rounded-full px-3 py-1.5 text-xs capitalize transition",
+              mode === m ? "bg-emerald-500/20 text-emerald-200 ring-1 ring-emerald-400/30" : "text-white/75 hover:bg-white/10"
+            )}
+            aria-pressed={mode === m}
+          >
+            {m}
+          </button>
+        ))}
+      </div>
+
+      {/* Preview */}
+      <div className="mb-3 rounded-2xl border border-emerald-400/20 bg-gradient-to-b from-emerald-600/10 to-emerald-500/5 p-3">
+        <div className="text-[10px] uppercase tracking-wide text-white/60">Preview</div>
+        <div className="mt-2 rounded-2xl bg-black/30 p-3 text-emerald-100 ring-1 ring-emerald-400/20">
+          {message}
+        </div>
+      </div>
+
+      {/* Input + acciones */}
+      <div className="flex flex-col gap-2 sm:flex-row">
+        <div className="flex-1">
+          <input
+            ref={inputRef}
+            value={custom}
+            onChange={(e) => setCustom(e.target.value)}
+            placeholder="Escribe tu mensaje para WhatsApp… (Enter para enviar)"
+            className="h-11 w-full rounded-md border border-white/15 bg-black/30 px-3 text-white placeholder:text-white/50 outline-none transition focus:ring-2 focus:ring-emerald-500/40"
+          />
+        </div>
+        <div className="flex flex-wrap gap-2">
+          <Button onClick={openWhatsApp} className="bg-emerald-600 hover:bg-emerald-500">
+            <Send className="mr-2 h-4 w-4" />
+            {`WhatsApp (${phones[idx].label})`}
+          </Button>
+          <Button variant="outline" onClick={call} className="border-white/30 bg-transparent text-white hover:bg-white/10">
+            <Phone className="mr-2 h-4 w-4" />
+            Llamar
+          </Button>
+          <Button
+            variant="secondary"
+            onClick={copy}
+            className="bg-emerald-500/15 text-emerald-200 hover:bg-emerald-500/25"
+            title="Copiar mensaje"
+          >
+            <Copy className="mr-2 h-4 w-4" />
+            Copiar
+          </Button>
+          <span className="hidden items-center gap-1 rounded-full border border-white/15 bg-white/5 px-2 py-1 text-[11px] text-white/70 sm:inline-flex">
+            <Sparkles className="h-3.5 w-3.5 text-emerald-300" /> Incluye enlace y referencia
+          </span>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+// app/stocks/[slug]/page.tsx
+import { notFound } from "next/navigation"
+import LetterboxImage from "@/components/ui/letterbox-image"
+import { stocks } from "@/data/stocks"
+import { formatPrice } from "@/lib/format"
+import { Badge } from "@/components/ui/badge"
+import BackBar from "@/components/ui/back-bar"
+import WhatsAppPanel from "@/components/whatsapp-panel"
+import { CARS_DEPT_PHONE_E164, CEO_PHONE_E164, CRYPTO_DEPT_PHONE_E164 } from "@/lib/phones"
+import PriceBadge from "@/components/ui/price-badge"
+import QuickWAButton from "@/components/quick-wa-button"
+import { buildProductMessage } from "@/lib/wa"
+
+export default function StockDetail({ params }: { params: { slug: string } }) {
+  const item = stocks.find((s) => s.slug === params.slug)
+  if (!item) return notFound()
+
+  const phones = [
+    { label: "CEO", number: CEO_PHONE_E164 },
+    { label: "Dept. Coches", number: CARS_DEPT_PHONE_E164 },
+    { label: "Dept. Crypto", number: CRYPTO_DEPT_PHONE_E164 },
+  ]
+  const defaultIndex = item.category === "Luxury cars" ? 1 : 0
+
+  const origin = typeof window !== "undefined" ? window.location.origin : ""
+  const detailsUrl = `${origin}/stocks/${item.slug}`
+  const quickMsg = buildProductMessage({
+    title: item.title,
+    category: item.category,
+    url: detailsUrl,
+    intent: "consulta",
+  })
+  const quickPhone = item.category === "Luxury cars" ? CARS_DEPT_PHONE_E164 : CEO_PHONE_E164
+  const quickLabel = item.category === "Luxury cars" ? "WhatsApp (Dept. Coches)" : "WhatsApp (CEO)"
+
+  return (
+    <section className="bg-[#0b1411] py-16 text-white">
+      <div className="container mx-auto max-w-7xl px-6">
+        <BackBar href="/stocks" label="Volver a Stocks" />
+
+        <div className="mb-4 flex flex-wrap items-center gap-3">
+          <Badge className="bg-emerald-600 text-white">{item.category}</Badge>
+          <PriceBadge value={formatPrice(item.price, item.currency)} />
+          <QuickWAButton phoneE164={quickPhone} message={quickMsg} label={quickLabel} size="default" />
+        </div>
+
+        <h1
+          className="text-4xl font-extrabold leading-tight md:text-6xl"
+          style={{ textShadow: "0 0 14px rgba(16,185,129,.28), 0 0 26px rgba(16,185,129,.18)" }}
+        >
+          <span className="bg-gradient-to-b from-emerald-200 via-emerald-300 to-emerald-400 bg-clip-text text-transparent">
+            {item.title}
+          </span>
+        </h1>
+        {item.short ? <p className="mt-3 max-w-3xl text-white/80">{item.short}</p> : null}
+
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {item.images.map((img) => (
+            <LetterboxImage key={img.src} src={img.src} alt={img.alt} aspect="16/9" cover />
+          ))}
+        </div>
+
+        <div className="mt-10 max-w-4xl">
+          <WhatsAppPanel itemTitle={item.title} context={item.category} phones={phones} defaultIndex={defaultIndex} href={detailsUrl} />
+        </div>
+      </div>
+    </section>
+  )
+}
