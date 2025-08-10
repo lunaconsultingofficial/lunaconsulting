@@ -9,10 +9,6 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  swcMinify: false,
-  experimental: {
-    esmExternals: false,
-  },
   webpack: (config, { isServer }) => {
     if (!isServer) {
       config.resolve.fallback = {
@@ -21,6 +17,11 @@ const nextConfig = {
         net: false,
         tls: false,
       }
+    }
+    // Optimize build performance
+    config.optimization = {
+      ...config.optimization,
+      minimize: false,
     }
     return config
   },
