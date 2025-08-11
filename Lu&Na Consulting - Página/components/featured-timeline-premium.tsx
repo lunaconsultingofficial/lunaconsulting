@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion"
 import { useRef } from "react"
-import { stocks as baseStocks } from "@/data/stocks"
+import { useFeaturedStocks } from "@/hooks/use-supabase-data"
 import Image from "next/image"
 import { Badge } from "@/components/ui/badge"
 import WhatsAppButtons from "@/components/whatsapp-buttons"
