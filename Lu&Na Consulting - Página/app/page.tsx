@@ -1,16 +1,17 @@
-import Navbar from "@/components/navbar"
-import Hero from "@/components/hero"
-import FeaturedTimeline from "@/components/featured-timeline-static"
+import NavbarPremium from "@/components/navbar-premium"
+import HeroPremium from "@/components/hero-premium"
+import CredentialsSection from "@/components/credentials-section"
+import FeaturedTimelinePremium from "@/components/featured-timeline-premium"
 import Footer from "@/components/footer"
 import WhatsAppFAB from "@/components/whatsapp-fab"
 
 export default function Page() {
-  // Home SIN secciones de Trading, Crypto ni Direct Contact
   return (
     <main className="relative">
-      <Navbar />
-      <Hero />
-      <FeaturedTimeline />
+      <NavbarPremium />
+      <HeroPremium />
+      <CredentialsSection />
+      <FeaturedTimelinePremium />
       <Footer />
       <WhatsAppFAB />
     </main>
