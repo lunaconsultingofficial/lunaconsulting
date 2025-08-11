@@ -15,243 +15,132 @@ export type StockItem = {
   short: string
   description?: string
   images: { src: string; alt: string }[]
+  videos?: string[]
   specs?: Record<string, string | number>
   featured?: boolean
 }
 
 export const stocks: StockItem[] = [
-  // Luxury cars
-  {
-    slug: "porsche-cayenne-e-hybrid",
-    title: "Porsche Cayenne e‑Hybrid",
-    category: "Luxury cars",
-    price: null,
-    currency: "EUR",
-    short: "Cayenne e‑Hybrid, black wheels, great condition.",
-    images: [
-      { src: "/images/porsche-front.jpg", alt: "Porsche Cayenne e‑Hybrid front detail" },
-      { src: "/images/porsche-34.jpg", alt: "Porsche Cayenne e‑Hybrid 3/4" },
-      { src: "/images/porsche-front2.jpg", alt: "Porsche Cayenne e‑Hybrid front" },
-    ],
-    featured: true,
-  },
-  {
-    slug: "lamborghini-huracan-spyder-black",
-    title: "Lamborghini Huracán Spyder (black)",
-    category: "Luxury cars",
-    price: null,
-    currency: "EUR",
-    short: "Black Huracán Spyder with LED tail lights. Details on request.",
-    images: [
-      { src: "/images/lambo-rear-close.jpg", alt: "Huracán rear close-up with LED tail" },
-      { src: "/images/lambo-rear-34.jpg", alt: "Huracán black rear 3/4 in foggy road" },
-    ],
-  },
-  {
-    slug: "lamborghini-urus-details",
-    title: "Lamborghini Urus details",
-    category: "Luxury cars",
-    price: null,
-    currency: "EUR",
-    short: "Performance wheel and interior controls set.",
-    images: [
-      { src: "/images/urus-wheel-redrim.jpg", alt: "Urus wheel with red rim" },
-      { src: "/images/urus-mode-switch.jpg", alt: "Urus STRADA/SPORT/CORSA switch" },
-      { src: "/images/urus-cruise-buttons.jpg", alt: "Urus cruise buttons on wheel" },
-      { src: "/images/urus-cluster.jpg", alt: "Urus digital cluster RPM" },
-      { src: "/images/urus-badge.jpg", alt: "Lamborghini badge on hood" },
-      { src: "/images/urus-console.jpg", alt: "Urus center console P/R/M" },
-    ],
-  },
-  {
-    slug: "toyota-landcruiser-300",
-    title: "Toyota Land Cruiser 300",
-    category: "Luxury cars",
-    price: null,
-    currency: "EUR",
-    short: "New LC300 examples. Interior and front view.",
-    images: [
-      { src: "/images/landcruiser-interior.jpg", alt: "LC300 interior front seats" },
-      { src: "/images/landcruiser-front.jpg", alt: "LC300 front view on lot" },
-    ],
-  },
-  {
-    slug: "lexus-lx600-70th",
-    title: "Lexus LX600 (70th Anniversary)",
-    category: "Luxury cars",
-    price: null,
-    currency: "EUR",
-    short: "LX600 70th Anniversary – rear and front.",
-    images: [
-      { src: "/images/lexus-lx600-rear.jpg", alt: "Lexus LX600 70th rear view" },
-      { src: "/images/lexus-lx600-front.jpg", alt: "Lexus LX600 F‑Sport front view" },
-    ],
-  },
   {
     slug: "pure-driving-emotion-porsche-911-carrera",
-    title: "Porsche 911 Carrera — Pure driving emotion",
+    title: "Pure Driving Emotion — Porsche 911 Carrera",
     category: "Luxury cars",
     price: null,
     currency: "EUR",
-    short: "Unidad Porsche 911 Carrera. Detalles y specs bajo solicitud.",
-    images: [{ src: "/silver-porsche-911.png", alt: "Porsche 911 Carrera exterior" }],
+    short: "We are offering a limited opportunity to acquire a Porsche 911 Carrera, now available for private ownership.",
+    description: "We are offering a limited opportunity to acquire a Porsche 911 Carrera, now available for private ownership.",
+    images: [
+      { src: "/website_images/porsche_911_carrera.jpeg", alt: "Porsche 911 Carrera" }
+    ],
+    videos: [],
+    featured: true,
   },
   {
     slug: "mercedes-benz",
-    title: "Mercedes‑Benz — Selection",
+    title: "Mercedes-Benz",
     category: "Luxury cars",
     price: null,
     currency: "EUR",
-    short: "Selección de unidades Mercedes‑Benz. Configuraciones a confirmar.",
-    images: [{ src: "/silver-luxury-sedan.png", alt: "Selección Mercedes‑Benz" }],
+    short: "We are offering the opportunity to privately acquire a Mercedes-Benz, a symbol of refined performance, engineering excellence.",
+    description: "We are offering the opportunity to privately acquire a Mercedes-Benz, a symbol of refined performance, engineering excellence,",
+    images: [
+      { src: "/website_images/mercedes_benz.jpeg", alt: "Mercedes-Benz" }
+    ],
+    videos: [],
+    featured: true,
   },
   {
-    slug: "rolls-royce-phantom-by-mansory-bespoke",
-    title: "Rolls‑Royce Phantom by Mansory — Bespoke",
+    slug: "rolls-royce-phantom-by-mansory",
+    title: "Rolls-Royce Phantom by Mansory",
     category: "Luxury cars",
     price: null,
     currency: "EUR",
-    short: "Oportunidad rara: Phantom personalizado por Mansory.",
-    images: [{ src: "/black-mansory-phantom.png", alt: "Phantom by Mansory" }],
+    short: "We are offering a rare opportunity to acquire a bespoke Rolls-Royce Phantom by Mansory.",
+    description: "We are offering a rare opportunity to acquire a bespoke Rolls-Royce Phantom by Mansory, now available for private ownership. This is an exclusive chance to possess a vehicle that embodies luxury and craftsmanship.",
+    images: [
+      { src: "/nadiua_media/07d64327-1469-4591-8dcd-7e63cd34f9a0-1-300x300.jpg", alt: "Rolls-Royce Phantom by Mansory" },
+      { src: "/nadiua_media/IMG-20250308-WA0001.jpg", alt: "Rolls-Royce Phantom by Mansory - Interior" },
+      { src: "/nadiua_media/IMG-20250308-WA0002.jpg", alt: "Rolls-Royce Phantom by Mansory - Detail" },
+      { src: "/nadiua_media/IMG-20250308-WA0003.jpg", alt: "Rolls-Royce Phantom by Mansory - Side view" },
+      { src: "/nadiua_media/IMG-20250308-WA0004.jpg", alt: "Rolls-Royce Phantom by Mansory - Front" },
+      { src: "/nadiua_media/IMG-20250308-WA0005.jpg", alt: "Rolls-Royce Phantom by Mansory - Rear" },
+      { src: "/nadiua_media/IMG-20250523-WA0031.jpg", alt: "Rolls-Royce Phantom by Mansory - Engine bay" },
+      { src: "/nadiua_media/IMG-20250523-WA0032.jpg", alt: "Rolls-Royce Phantom by Mansory - Interior detail" },
+      { src: "/nadiua_media/IMG-20250523-WA0033.jpg", alt: "Rolls-Royce Phantom by Mansory - Dashboard" }
+    ],
+    videos: [
+      "/nadiua_media/2025-03-09-223652819 - copia.mp4",
+      "/nadiua_media/VID-20250308-WA0066 - copia.mp4",
+      "/nadiua_media/VID-20250308-WA0066.mp4",
+      "/nadiua_media/VID-20250705-WA0051.mp4"
+    ],
+    featured: true,
   },
   {
     slug: "mercedes-maybach-luxury-redefined",
-    title: "Mercedes‑Maybach — Luxury redefined",
+    title: "Mercedes-Maybach — Luxury Redefined",
     category: "Luxury cars",
     price: null,
     currency: "EUR",
-    short: "Maybach con lujo redefinido. Disponible bajo solicitud.",
-    images: [{ src: "/black-luxury-sedan.png", alt: "Mercedes‑Maybach" }],
+    short: "We are pleased to offer a Mercedes-Maybach for private sale — a symbol of absolute comfort, craftsmanship.",
+    description: "We are pleased to offer a Mercedes-Maybach for private sale — a symbol of absolute comfort, craftsmanship,",
+    images: [
+      { src: "/website_images/mercedes_maybach.png", alt: "Mercedes-Maybach" }
+    ],
+    videos: [],
+  },
+  {
+    slug: "luxury-yacht-exclusive-offering",
+    title: "Luxury Yacht — An Exclusive Offering for Discerning Buyers",
+    category: "Inventory",
+    price: null,
+    currency: "EUR",
+    short: "We are offering a prestigious luxury yacht for sale, available now for private acquisition.",
+    description: "We are offering a prestigious luxury yacht for sale, available now for private acquisition. This is a",
+    images: [
+      { src: "/website_images/luxury_yacht.png", alt: "Luxury Yacht" }
+    ],
+    videos: [],
   },
   {
     slug: "koenigsegg-jesko-2025-white",
-    title: "Koenigsegg Jesko 2025 (White)",
+    title: "2025 Koenigsegg Jesko (White) — The Pinnacle of Hypercar Engineering",
     category: "Luxury cars",
     price: null,
     currency: "EUR",
-    short: "El pináculo de la ingeniería hypercar. Unidad 2025 blanca.",
-    images: [{ src: "/white-jesko-hypercar.png", alt: "Koenigsegg Jesko 2025 white" }],
+    short: "We are pleased to present an exclusive opportunity to acquire a 2025 Koenigsegg Jesko, finished in white.",
+    description: "We are pleased to present an exclusive opportunity to acquire a 2025 Koenigsegg Jesko, finished in a",
+    images: [
+      { src: "/website_images/koenigsegg_jesko.png", alt: "2025 Koenigsegg Jesko White" }
+    ],
+    videos: [
+      "/nadiua_media/2025-03-09-223652819.mp4"
+    ],
   },
   {
     slug: "ferrari-daytona-sp3-2024-grigio",
-    title: "Ferrari Daytona SP3 2024 (Grigio)",
+    title: "2024 Ferrari Daytona SP3 (Grigio Finish)",
     category: "Luxury cars",
     price: null,
     currency: "EUR",
-    short: "Daytona SP3 2024 en acabado Grigio. Serie limitada.",
-    images: [{ src: "/placeholder-zp9ay.png", alt: "Ferrari Daytona SP3 2024 Grigio" }],
+    short: "A Masterpiece from Ferrari's Exclusive Icona Series. We are offering an exceptional opportunity to acquire a 2024.",
+    description: "A Masterpiece from Ferrari's Exclusive Icona Series We are offering an exceptional opportunity to acquire a 2024",
+    images: [
+      { src: "/website_images/ferrari_daytona_sp3.jpeg", alt: "2024 Ferrari Daytona SP3 Grigio" }
+    ],
+    videos: [],
   },
   {
     slug: "brabus-vehicle-stock-exclusive-opportunity",
-    title: "Brabus vehicle stock — Exclusive opportunity",
+    title: "Brabus Vehicle Stock — Exclusive Opportunity",
     category: "Luxury cars",
     price: null,
     currency: "EUR",
-    short: "Stock de vehículos Brabus disponible. Consulta unidades.",
-    images: [{ src: "/black-brabus-g-wagon.png", alt: "Brabus vehicle stock" }],
-  },
-
-  // Real estate
-  {
-    slug: "villa-night-pool",
-    title: "Villa with night pool",
-    category: "Real estate",
-    price: null,
-    currency: "EUR",
-    short: "Linear illuminated pool, open terrace and living room.",
-    images: [{ src: "/images/pool-night.jpg", alt: "Night pool next to terrace" }],
-    featured: true,
-  },
-
-  // Inventory (diverse)
-  {
-    slug: "sitrak-8x4-dumper",
-    title: "Sitrak 8x4 Dumper",
-    category: "Inventory",
-    price: null,
-    currency: "EUR",
-    short: "8x4 dumper truck, ready to work.",
+    short: "We are currently seeking a qualified buyer for an exclusive stock of Brabus-enhanced vehicles.",
+    description: "We are currently seeking a qualified buyer for an exclusive stock of Brabus-enhanced vehicles, built on premium",
     images: [
-      { src: "/images/sitrak.jpg", alt: "Sitrak 8x4 dumper" },
-      { src: "/images/sitrak-side.jpg", alt: "Sitrak 8x4 side view" },
+      { src: "/website_images/brabus_vehicle_stock.jpeg", alt: "Brabus Vehicle Stock" }
     ],
-    featured: true,
-  },
-  {
-    slug: "flart-32-motorboat",
-    title: "Flart 32 Hardtop",
-    category: "Inventory",
-    price: null,
-    currency: "EUR",
-    short: "Flart 32 sports motorboat, well maintained.",
-    images: [
-      { src: "/images/boat-exterior.jpg", alt: "Flart 32 at berth" },
-      { src: "/images/boat-exterior-2.jpg", alt: "Sports boat at berth, other angle" },
-      { src: "/images/boat-stand.jpg", alt: "Boat on yard stand" },
-    ],
-    featured: true,
-  },
-  {
-    slug: "cat-320e-excavator",
-    title: "CAT 320E Excavator",
-    category: "Inventory",
-    price: null,
-    currency: "EUR",
-    short: "CAT 320E tracked excavator with bucket.",
-    images: [{ src: "/images/cat-320e.jpg", alt: "CAT 320E excavator" }],
-    featured: true,
-  },
-  {
-    slug: "daf-tractor-unit-480",
-    title: "DAF tractor unit 480",
-    category: "Inventory",
-    price: null,
-    currency: "EUR",
-    short: "DAF tractor unit on site. More units available.",
-    images: [
-      { src: "/images/daf-head.jpg", alt: "DAF tractor unit front" },
-    ],
-  },
-  {
-    slug: "for-sale-luxury-yachtan-exclusive-offering-for-discerning-buyers",
-    title: "Luxury Yacht — Exclusive offering",
-    category: "Inventory",
-    price: null,
-    currency: "EUR",
-    short: "Yate de lujo — oferta exclusiva para compradores exigentes.",
-    images: [{ src: "/placeholder-cqkrx.png", alt: "Luxury yacht exterior" }],
-  },
-
-  // Aircraft (example)
-  {
-    slug: "airbus-a321-200",
-    title: "Airbus A321-200",
-    category: "Aircraft",
-    price: null,
-    currency: "USD",
-    short: "A321-200 available. History under verification.",
-    images: [{ src: "/images/airbus-a321.jpg", alt: "A321-200 on runway" }],
-  },
-
-  // Commodities (example)
-  {
-    slug: "teardrop-diamond",
-    title: "Teardrop‑cut diamond",
-    category: "Commodities",
-    price: null,
-    currency: "USD",
-    short: "Teardrop‑cut diamond. Documentation on request.",
-    images: [{ src: "/images/diamond.jpg", alt: "Teardrop cut diamond" }],
-  },
-
-  // Institutional loans
-  {
-    slug: "institutional-loans",
-    title: "Institutional loans",
-    category: "Institutional loans",
-    price: null,
-    currency: "EUR",
-    short: "Connection with entities for institutional solutions.",
-    images: [{ src: "/images/building-pool-night.jpg", alt: "Institutional" }],
+    videos: [],
   },
 ]
