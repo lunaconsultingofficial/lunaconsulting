@@ -79,9 +79,16 @@ export default function FeaturedTimelinePremium() {
           </h2>
           
           <p className="text-xl leading-relaxed text-slate-300 md:text-2xl">
-            Hand-selected premium assets for the world's most discerning investors. 
+            Hand-selected premium assets for the world's most discerning investors.
             Each piece represents the pinnacle of luxury and exclusivity.
           </p>
+
+          {loading && (
+            <div className="mt-4 flex items-center justify-center gap-2 text-emerald-400">
+              <div className="h-4 w-4 animate-spin rounded-full border-2 border-emerald-400 border-t-transparent" />
+              <span className="text-sm">Loading exclusive portfolio...</span>
+            </div>
+          )}
         </motion.div>
 
         {/* Featured Items */}
