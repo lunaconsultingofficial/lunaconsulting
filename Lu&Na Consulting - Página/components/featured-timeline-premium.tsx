@@ -21,8 +21,7 @@ export default function FeaturedTimelinePremium() {
     offset: ["start end", "end start"]
   })
 
-  const cats = ["Luxury cars", "Inventory", "Real estate"] as const
-  const featured = baseStocks.filter(s => s.featured).slice(0, 6)
+  const { stocks: featured, loading } = useFeaturedStocks()
 
   return (
     <section id="featured" ref={containerRef} className="relative overflow-hidden py-32 bg-slate-900">
