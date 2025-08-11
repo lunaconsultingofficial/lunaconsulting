@@ -13,7 +13,7 @@ export default function Page() {
       <CredentialsSection />
       <FeaturedTimelinePremium />
       <FooterPremium />
-      <WhatsAppFAB />
+      <WhatsAppFABPremium />
     </main>
   )
 }
