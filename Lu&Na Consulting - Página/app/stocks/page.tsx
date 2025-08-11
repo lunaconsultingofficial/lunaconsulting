@@ -7,7 +7,7 @@ export default function StocksPage() {
   return (
     <main className="relative">
       <NavbarPremium />
-      <StockGridPremium />
+      <StockGridHybrid />
       <FooterPremium />
       <WhatsAppFABPremium />
     </main>
