@@ -9,7 +9,8 @@ import { Eye, ArrowRight, Sparkles, Filter, Database } from "lucide-react"
 import { CARS_DEPT_PHONE_E164, CEO_PHONE_E164 } from "@/lib/phones"
 import { buildProductMessage } from "@/lib/wa"
 import QuickWAButton from "@/components/quick-wa-button"
-import { useSupabaseStocks, useStockAnalytics } from "@/hooks/use-supabase-data"
+// Temporarily use local data only to avoid Supabase dependency issues
+// import { useSupabaseStocks, useStockAnalytics } from "@/hooks/use-supabase-data"
 import { stocks as localStocks, type StockCategory } from "@/data/stocks"
 
 function isVideo(src?: string) {
