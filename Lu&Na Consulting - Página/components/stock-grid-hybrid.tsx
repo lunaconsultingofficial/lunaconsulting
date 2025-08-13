@@ -285,12 +285,7 @@ export default function StockGridHybrid() {
         >
           <div className="inline-flex items-center gap-2 rounded-lg border border-emerald-500/20 bg-emerald-500/5 px-4 py-2 text-xs text-emerald-400">
             <Database className="h-3 w-3" />
-            <span>
-              {supabaseStocks.length > 0 ? 
-                `Live data from Supabase • ${filteredStocks.length} assets` : 
-                `Local data • ${filteredStocks.length} assets`
-              }
-            </span>
+            <span>Local data • {filteredStocks.length} assets</span>
           </div>
         </motion.div>
       </div>
