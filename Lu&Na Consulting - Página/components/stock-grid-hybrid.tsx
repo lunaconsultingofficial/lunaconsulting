@@ -86,12 +86,10 @@ export default function StockGridHybrid() {
             <span className="text-sm font-medium text-emerald-300 tracking-wide">
               EXCLUSIVE PORTFOLIO
             </span>
-            {supabaseStocks.length > 0 && (
-              <div className="ml-2 flex items-center gap-1 text-xs text-emerald-400">
-                <Database className="h-3 w-3" />
-                <span>Live Data</span>
-              </div>
-            )}
+            <div className="ml-2 flex items-center gap-1 text-xs text-slate-400">
+              <Database className="h-3 w-3" />
+              <span>Local Data</span>
+            </div>
           </div>
           
           <h1 className="mb-6 text-5xl font-bold tracking-tight text-white md:text-7xl">
