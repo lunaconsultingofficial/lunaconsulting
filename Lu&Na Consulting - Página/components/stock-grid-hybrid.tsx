@@ -18,14 +18,18 @@ function isVideo(src?: string) {
 }
 
 export default function StockGridHybrid() {
-  const { stocks: supabaseStocks, loading, error } = useSupabaseStocks()
-  const { trackStockInteraction, trackWhatsAppClick } = useStockAnalytics()
-  
-  // Use Supabase data if available, otherwise fallback to local data
-  const stocks = useMemo(() => {
-    if (supabaseStocks.length > 0) return supabaseStocks
-    return localStocks
-  }, [supabaseStocks])
+  // Temporarily use local data only to ensure the app works
+  const stocks = localStocks
+  const loading = false
+  const error = null
+
+  // Mock analytics functions for now
+  const trackStockInteraction = async (stockSlug: string, interaction: string) => {
+    console.log('Track interaction:', stockSlug, interaction)
+  }
+  const trackWhatsAppClick = async (stockSlug: string, department: string) => {
+    console.log('Track WhatsApp click:', stockSlug, department)
+  }
 
   // Filter out hidden categories
   const HIDDEN: StockCategory[] = ["Aircraft", "Commodities"]
