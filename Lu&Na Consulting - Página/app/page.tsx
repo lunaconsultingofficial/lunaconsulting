@@ -11,7 +11,7 @@ export default function Page() {
       <NavbarPremium />
       <HeroPremium />
       <CredentialsSection />
-      <FeaturedTimelinePremium />
+      <FeaturedTimelineFixed />
       <FooterPremium />
       <WhatsAppFABPremium />
     </main>
