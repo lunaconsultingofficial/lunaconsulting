@@ -1,19 +1,18 @@
-import NavbarPremium from "@/components/navbar-premium"
-import HeroPremium from "@/components/hero-premium"
-import CredentialsSection from "@/components/credentials-section"
-import FeaturedTimelineFixed from "@/components/featured-timeline-fixed"
-import FooterPremium from "@/components/footer-premium"
-import WhatsAppFABPremium from "@/components/whatsapp-fab-premium"
+import Navbar from "@/components/navbar"
+import Hero from "@/components/hero"
+import FeaturedTimeline from "@/components/featured-timeline-static"
+import Footer from "@/components/footer"
+import WhatsAppFAB from "@/components/whatsapp-fab"
 
 export default function Page() {
+  // Home SIN secciones de Trading, Crypto ni Direct Contact
   return (
     <main className="relative">
-      <NavbarPremium />
-      <HeroPremium />
-      <CredentialsSection />
-      <FeaturedTimelineFixed />
-      <FooterPremium />
-      <WhatsAppFABPremium />
+      <Navbar />
+      <Hero />
+      <FeaturedTimeline />
+      <Footer />
+      <WhatsAppFAB />
     </main>
   )
 }
