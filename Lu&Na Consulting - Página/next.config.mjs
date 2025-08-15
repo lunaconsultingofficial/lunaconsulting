@@ -54,7 +54,19 @@ const nextConfig = {
         headers: [
           {
             key: 'X-Frame-Options',
-            value: 'DENY',
+            value: 'SAMEORIGIN',
+          },
+          {
+            key: 'Access-Control-Allow-Origin',
+            value: 'https://faf33bf796a24199b5278736222c39f1-8068d4492d2d4c849045b4517.fly.dev',
+          },
+          {
+            key: 'Access-Control-Allow-Methods',
+            value: 'GET, POST, PUT, DELETE, OPTIONS',
+          },
+          {
+            key: 'Access-Control-Allow-Headers',
+            value: 'X-Requested-With, Content-Type, Authorization',
           },
           {
             key: 'X-Content-Type-Options',
