@@ -56,12 +56,8 @@ const nextConfig = {
         source: '/(.*)',
         headers: [
           {
-            key: 'X-Frame-Options',
-            value: 'SAMEORIGIN',
-          },
-          {
             key: 'Access-Control-Allow-Origin',
-            value: 'https://faf33bf796a24199b5278736222c39f1-8068d4492d2d4c849045b4517.fly.dev',
+            value: '*',
           },
           {
             key: 'Access-Control-Allow-Methods',
