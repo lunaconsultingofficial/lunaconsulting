@@ -3,13 +3,6 @@ const nextConfig = {
   // Disable React DevTools and suppress clipboard warnings
   webpack: (config, { dev, isServer }) => {
     if (dev && !isServer) {
-      // Suppress clipboard API errors by disabling copy functionality in dev overlay
-      config.resolve.alias = {
-        ...config.resolve.alias,
-        // Disable clipboard access in development
-        'react-devtools-core': false,
-      }
-      
       // Reduce logging noise
       config.infrastructureLogging = {
         level: 'error',
@@ -29,7 +22,6 @@ const nextConfig = {
   // Production optimizations
   compress: true,
   poweredByHeader: false,
-  swcMinify: true,
   
   // Reduce bundle size
   experimental: {
@@ -40,8 +32,6 @@ const nextConfig = {
       '@radix-ui/react-dialog',
       '@radix-ui/react-dropdown-menu'
     ],
-    // Disable features that can cause clipboard issues
-    reactCompiler: false,
   },
   
   // Image optimization
