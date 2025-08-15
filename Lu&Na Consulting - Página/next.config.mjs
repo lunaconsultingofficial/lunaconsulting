@@ -75,11 +75,6 @@ const nextConfig = {
             key: 'Referrer-Policy',
             value: 'origin-when-cross-origin',
           },
-          // Explicitly block clipboard API to prevent errors
-          {
-            key: 'Permissions-Policy',
-            value: 'clipboard-write=(), clipboard-read=()',
-          },
         ],
       },
     ]
