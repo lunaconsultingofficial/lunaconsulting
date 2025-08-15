@@ -1,15 +1,6 @@
-import NavbarPremium from "@/components/navbar-premium"
-import StockGridHybrid from "@/components/stock-grid-hybrid"
-import FooterPremium from "@/components/footer-premium"
-import WhatsAppFABPremium from "@/components/whatsapp-fab-premium"
+import StockGrid from "@/components/stock-grid"
 
 export default function StocksPage() {
-  return (
-    <main className="relative">
-      <NavbarPremium />
-      <StockGridHybrid />
-      <FooterPremium />
-      <WhatsAppFABPremium />
-    </main>
-  )
+  // Mantiene el mismo fondo (BackgroundVisual ya está aplicado globalmente en layout)
+  return <StockGrid />
 }
