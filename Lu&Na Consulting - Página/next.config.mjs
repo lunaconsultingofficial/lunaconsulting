@@ -1,7 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Allow cross-origin requests from Builder.io preview
-  allowedDevOrigins: ['faf33bf796a24199b5278736222c39f1-8068d4492d2d4c849045b4517.fly.dev'],
+  allowedDevOrigins: [
+    'faf33bf796a24199b5278736222c39f1-8068d4492d2d4c849045b4517.fly.dev',
+    '*.fly.dev'
+  ],
 
   // Disable React DevTools and suppress clipboard warnings
   webpack: (config, { dev, isServer }) => {
