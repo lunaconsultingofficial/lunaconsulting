@@ -16,7 +16,7 @@ import { buildProductMessage } from "@/lib/wa"
 import { Eye, ChevronLeft, ChevronRight } from "lucide-react"
 import { useImportedStocks } from "@/hooks/use-imported-stocks"
 
-const HIDDEN: StockCategory[] = ["Aircraft", "Commodities"]
+const HIDDEN: StockCategory[] = []
 
 function isVideo(src?: string) {
   return !!src && /\.(mp4|webm|mov|m4v)$/i.test(src)
@@ -66,56 +66,188 @@ export default function StockGrid() {
   }
 
   return (
-    <section id="stocks" className="relative overflow-hidden bg-[#0e1915] py-16 text-white">
+    <section 
+      id="stocks" 
+      className="relative min-h-screen overflow-hidden py-16 text-white"
+      style={{
+        background: `
+          linear-gradient(135deg, 
+            rgba(16, 185, 129, 0.15) 0%, 
+            rgba(59, 130, 246, 0.15) 25%,
+            rgba(168, 85, 247, 0.15) 50%,
+            rgba(236, 72, 153, 0.15) 75%,
+            rgba(251, 146, 60, 0.15) 100%
+          ),
+          radial-gradient(circle at 20% 80%, rgba(16, 185, 129, 0.2) 0%, transparent 50%),
+          radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.2) 0%, transparent 50%),
+          #0a0f1c
+        `
+      }}
+    >
+      {/* Glassmorphism Background Elements */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute left-1/2 top-0 h-[140%] w-px -translate-x-1/2 bg-emerald-500/10" />
-        <div className="absolute left-8 top-10 h-px w-[calc(100%-4rem)] bg-emerald-500/10" />
-        <div className="absolute bottom-8 right-8 h-px w-[calc(100%-4rem)] bg-emerald-500/10" />
+        {/* Floating glass orbs */}
+        <motion.div
+          className="absolute left-1/4 top-20 h-64 w-64 rounded-full"
+          style={{
+            background: "linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(59, 130, 246, 0.1))",
+            backdropFilter: "blur(60px)",
+            border: "1px solid rgba(255, 255, 255, 0.1)"
+          }}
+          animate={{
+            y: [0, -20, 0],
+            rotate: [0, 180, 360],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+        />
+        <motion.div
+          className="absolute right-1/4 bottom-20 h-48 w-48 rounded-full"
+          style={{
+            background: "linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(236, 72, 153, 0.1))",
+            backdropFilter: "blur(40px)",
+            border: "1px solid rgba(255, 255, 255, 0.08)"
+          }}
+          animate={{
+            y: [0, 15, 0],
+            rotate: [360, 180, 0],
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+        />
+        
+        {/* Grid lines with glassmorphism */}
+        <div 
+          className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2"
+          style={{
+            background: "linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.1), transparent)"
+          }}
+        />
+        <div 
+          className="absolute left-8 top-10 h-px w-[calc(100%-4rem)]"
+          style={{
+            background: "linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent)"
+          }}
+        />
+        <div 
+          className="absolute bottom-8 right-8 h-px w-[calc(100%-4rem)]"
+          style={{
+            background: "linear-gradient(to left, transparent, rgba(255, 255, 255, 0.1), transparent)"
+          }}
+        />
       </div>
 
       <div className="container relative z-10 mx-auto max-w-7xl px-6">
-        <BackBar href="/" label="Volver al inicio" />
+        {/* Glassmorphism Back Bar */}
+        <div 
+          className="mb-8 inline-block rounded-2xl p-1"
+          style={{
+            background: "rgba(255, 255, 255, 0.05)",
+            backdropFilter: "blur(20px)",
+            border: "1px solid rgba(255, 255, 255, 0.1)",
+            boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)"
+          }}
+        >
+          <BackBar href="/" label="Volver al inicio" />
+        </div>
 
-        <div className="mx-auto max-w-4xl text-center">
+        {/* Glassmorphism Title Section */}
+        <motion.div 
+          className="mx-auto max-w-4xl text-center mb-12 rounded-3xl p-8"
+          style={{
+            background: "rgba(255, 255, 255, 0.03)",
+            backdropFilter: "blur(30px)",
+            border: "1px solid rgba(255, 255, 255, 0.08)",
+            boxShadow: "0 16px 64px rgba(0, 0, 0, 0.1)"
+          }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
           <h1
-            className="text-5xl font-extrabold leading-tight tracking-tight md:text-7xl"
-            style={{ textShadow: "0 0 14px rgba(16,185,129,.28), 0 0 26px rgba(16,185,129,.18)" }}
+            className="text-5xl font-extrabold leading-tight tracking-tight md:text-7xl mb-6"
+            style={{ 
+              textShadow: "0 0 20px rgba(16,185,129,.4), 0 0 40px rgba(59,130,246,.3)",
+              background: "linear-gradient(135deg, #10b981, #3b82f6, #a855f7, #ec4899)",
+              backgroundClip: "text",
+              WebkitBackgroundClip: "text",
+              color: "transparent"
+            }}
           >
-            <span className="bg-gradient-to-b from-emerald-200 via-emerald-300 to-emerald-400 bg-clip-text text-transparent">
-              Stocks
-            </span>
+            Stocks Exclusivos
           </h1>
-          <p className="mt-4 text-white/80">
-            {loading ? "Importando catálogo..." : "Todos los medios vinculados y la descripción completa en la ficha."}
+          <p className="text-xl text-white/80 font-light">
+            {loading ? "Importando catálogo premium..." : "Colección completa de activos de lujo y oportunidades de inversión"}
           </p>
-        </div>
+          <div className="mt-6 text-sm text-white/60">
+            <span className="px-4 py-2 rounded-full bg-white/5 border border-white/10">
+              {ALL_VISIBLE.length} productos exclusivos disponibles
+            </span>
+          </div>
+        </motion.div>
 
-        {/* Filtros */}
-        <div className="mx-auto mt-10 flex max-w-full flex-wrap justify-center gap-2">
-          {CATEGORIES.map((c) => (
-            <button
-              key={c}
-              onClick={() => handleCategoryChange(c)}
-              className={`rounded-full border px-4 py-1.5 text-sm transition ${
-                active === c
-                  ? "border-emerald-400/40 bg-emerald-500/15 text-emerald-100"
-                  : "border-white/20 bg-white/5 text-white/70 hover:bg-white/10"
-              }`}
-            >
-              {c}{" "}
-              <span className="ml-1 text-white/50">
-                ({c === "Todos" ? ALL_VISIBLE.length : counts.get(c as string) || 0})
-              </span>
-            </button>
-          ))}
-        </div>
+        {/* Glassmorphism Category Filters */}
+        <motion.div 
+          className="mx-auto mt-10 mb-12 max-w-5xl rounded-2xl p-6"
+          style={{
+            background: "rgba(255, 255, 255, 0.04)",
+            backdropFilter: "blur(25px)",
+            border: "1px solid rgba(255, 255, 255, 0.1)",
+            boxShadow: "0 12px 48px rgba(0, 0, 0, 0.15)"
+          }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <div className="flex flex-wrap justify-center gap-3">
+            {CATEGORIES.map((c, index) => (
+              <motion.button
+                key={c}
+                onClick={() => handleCategoryChange(c)}
+                className={`rounded-2xl border px-6 py-3 text-sm font-medium transition-all duration-300 ${
+                  active === c
+                    ? "text-white shadow-lg"
+                    : "text-white/70 hover:text-white"
+                }`}
+                style={{
+                  background: active === c 
+                    ? "linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(59, 130, 246, 0.2))"
+                    : "rgba(255, 255, 255, 0.03)",
+                  backdropFilter: "blur(20px)",
+                  border: active === c 
+                    ? "1px solid rgba(16, 185, 129, 0.3)"
+                    : "1px solid rgba(255, 255, 255, 0.08)",
+                  boxShadow: active === c 
+                    ? "0 8px 32px rgba(16, 185, 129, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1)"
+                    : "0 4px 16px rgba(0, 0, 0, 0.1)"
+                }}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                {c}{" "}
+                <span className="ml-2 text-white/50 text-xs">
+                  ({c === "Todos" ? ALL_VISIBLE.length : counts.get(c as string) || 0})
+                </span>
+              </motion.button>
+            ))}
+          </div>
+        </motion.div>
 
-        {/* Grid */}
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {/* Glassmorphism Product Grid */}
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {list.map((item, i) => {
             // Portada garantizada como imagen
             const cover = item.images.find((m: { src: string }) => !isVideo(m.src)) || item.images[0]
-            const isCars = item.category === "Luxury cars"
+            const isCars = item.category === "Coches de lujo"
 
             const origin = typeof window !== "undefined" ? window.location.origin : "https://lunaconsulting.example"
             const detailsUrl = `${origin}/stocks/${item.slug}`
@@ -131,49 +263,132 @@ export default function StockGrid() {
             return (
               <motion.div
                 key={`${item.slug}-${i}`}
-                initial={{ opacity: 0, y: 16 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.4, delay: i * 0.03 }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                whileHover={{ y: -8, scale: 1.02 }}
+                className="group"
               >
-                <Card className="overflow-hidden border border-white/10 bg-[#0b1411]">
+                <Card 
+                  className="overflow-hidden transition-all duration-500 group-hover:shadow-2xl"
+                  style={{
+                    background: "rgba(255, 255, 255, 0.06)",
+                    backdropFilter: "blur(30px)",
+                    border: "1px solid rgba(255, 255, 255, 0.12)",
+                    boxShadow: "0 16px 64px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1)"
+                  }}
+                >
                   <CardHeader className="relative p-0">
-                    <LetterboxImage
-                      src={cover?.src || "/placeholder.svg?height=720&width=1280&query=stock-image"}
-                      alt={cover?.alt || item.title}
-                      sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
-                      aspect="16/9"
-                      cover
-                    />
-                    <div className="absolute left-3 top-3 flex items-center gap-2">
-                      <Badge className="bg-emerald-600 text-white">{item.category}</Badge>
-                      <PriceBadge value={formatPrice(item.price, item.currency)} />
+                    <div className="relative overflow-hidden rounded-t-lg">
+                      <LetterboxImage
+                        src={cover?.src || "/placeholder.svg?height=720&width=1280&query=luxury-stock"}
+                        alt={cover?.alt || item.title}
+                        sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
+                        aspect="16/9"
+                        cover
+                        className="transition-transform duration-700 group-hover:scale-110"
+                      />
+                      {/* Glassmorphism overlay on image hover */}
+                      <div 
+                        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                        style={{
+                          background: "linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(59, 130, 246, 0.1))",
+                          backdropFilter: "blur(2px)"
+                        }}
+                      />
                     </div>
+                    
+                    {/* Floating glassmorphism badges */}
+                    <div className="absolute left-4 top-4 flex items-center gap-3">
+                      <Badge 
+                        className="text-white font-medium text-xs px-3 py-1"
+                        style={{
+                          background: "rgba(16, 185, 129, 0.8)",
+                          backdropFilter: "blur(20px)",
+                          border: "1px solid rgba(255, 255, 255, 0.2)",
+                          boxShadow: "0 8px 32px rgba(16, 185, 129, 0.3)"
+                        }}
+                      >
+                        {item.category}
+                      </Badge>
+                      <div
+                        className="px-3 py-1 rounded-full text-xs font-medium text-white"
+                        style={{
+                          background: "rgba(0, 0, 0, 0.4)",
+                          backdropFilter: "blur(20px)",
+                          border: "1px solid rgba(255, 255, 255, 0.1)"
+                        }}
+                      >
+                        {formatPrice(item.price, item.currency)}
+                      </div>
+                    </div>
+
+                    {/* Featured indicator */}
+                    {item.featured && (
+                      <div 
+                        className="absolute right-4 top-4 h-3 w-3 rounded-full"
+                        style={{
+                          background: "linear-gradient(135deg, #f59e0b, #ef4444)",
+                          boxShadow: "0 0 20px rgba(245, 158, 11, 0.5)"
+                        }}
+                      />
+                    )}
                   </CardHeader>
-                  <CardContent className="space-y-3 p-4">
+                  
+                  <CardContent 
+                    className="space-y-4 p-6"
+                    style={{
+                      background: "rgba(255, 255, 255, 0.02)",
+                      backdropFilter: "blur(20px)"
+                    }}
+                  >
                     <h3 className="line-clamp-2">
                       <span
-                        className="text-[1.25rem] font-extrabold leading-snug tracking-tight md:text-[1.5rem]"
-                        style={{ textShadow: "0 0 10px rgba(16,185,129,.25), 0 0 18px rgba(16,185,129,.15)" }}
+                        className="text-xl font-bold leading-snug tracking-tight md:text-2xl"
+                        style={{ 
+                          textShadow: "0 0 15px rgba(16,185,129,.3)",
+                          background: "linear-gradient(135deg, #ffffff, #f3f4f6)",
+                          backgroundClip: "text",
+                          WebkitBackgroundClip: "text",
+                          color: "transparent"
+                        }}
                       >
-                        <span className="bg-gradient-to-b from-emerald-200 via-emerald-300 to-emerald-400 bg-clip-text text-transparent">
-                          {item.title}
-                        </span>
+                        {item.title}
                       </span>
                     </h3>
-                    {item.short ? <p className="mt-1 line-clamp-3 text-sm text-white/75">{item.short}</p> : null}
+                    {item.short && (
+                      <p className="line-clamp-3 text-sm text-white/75 leading-relaxed">
+                        {item.short}
+                      </p>
+                    )}
 
-                    {/* CTA */}
-                    <div className="mt-3 flex flex-wrap items-center gap-2">
+                    {/* Glassmorphism CTA buttons */}
+                    <div className="mt-6 flex flex-wrap items-center gap-3">
                       <Link
                         href={`/stocks/${item.slug}`}
-                        className="inline-flex items-center gap-2 rounded-full border border-emerald-400/40 bg-emerald-600 px-3.5 py-2 text-sm font-medium text-white shadow-[0_0_14px_rgba(16,185,129,0.25)_inset] transition hover:bg-emerald-500"
+                        className="inline-flex items-center gap-2 rounded-2xl px-6 py-3 text-sm font-medium text-white transition-all duration-300 hover:scale-105"
+                        style={{
+                          background: "linear-gradient(135deg, rgba(16, 185, 129, 0.8), rgba(59, 130, 246, 0.8))",
+                          backdropFilter: "blur(20px)",
+                          border: "1px solid rgba(255, 255, 255, 0.2)",
+                          boxShadow: "0 8px 32px rgba(16, 185, 129, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)"
+                        }}
                         aria-label="Ver detalles"
                       >
                         <Eye className="h-4 w-4" />
                         Ver detalles
                       </Link>
-                      <QuickWAButton phoneE164={quickPhone} message={quickMsg} label={quickLabel} />
+                      <div
+                        className="rounded-2xl p-1"
+                        style={{
+                          background: "rgba(255, 255, 255, 0.05)",
+                          backdropFilter: "blur(20px)",
+                          border: "1px solid rgba(255, 255, 255, 0.1)"
+                        }}
+                      >
+                        <QuickWAButton phoneE164={quickPhone} message={quickMsg} label={quickLabel} />
+                      </div>
                     </div>
                   </CardContent>
                 </Card>
@@ -182,49 +397,97 @@ export default function StockGrid() {
           })}
         </div>
 
-        {/* Pagination */}
+        {/* Glassmorphism Pagination */}
         {totalPages > 1 && (
-          <div className="mt-12 flex items-center justify-center gap-4">
-            <button
-              onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
-              disabled={currentPage === 1}
-              className="flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-2 text-sm text-white/70 transition hover:bg-white/10 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              <ChevronLeft className="h-4 w-4" />
-              Anterior
-            </button>
-
-            <div className="flex items-center gap-2">
-              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-                <button
-                  key={page}
-                  onClick={() => setCurrentPage(page)}
-                  className={`h-10 w-10 rounded-full text-sm transition ${
-                    currentPage === page
-                      ? "bg-emerald-600 text-white"
-                      : "border border-white/20 bg-white/5 text-white/70 hover:bg-white/10"
-                  }`}
-                >
-                  {page}
-                </button>
-              ))}
+          <motion.div 
+            className="mt-16 rounded-2xl p-6"
+            style={{
+              background: "rgba(255, 255, 255, 0.04)",
+              backdropFilter: "blur(25px)",
+              border: "1px solid rgba(255, 255, 255, 0.1)",
+              boxShadow: "0 12px 48px rgba(0, 0, 0, 0.15)"
+            }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <div className="flex items-center justify-center gap-6">
+              <button
+                onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
+                disabled={currentPage === 1}
+                className="flex items-center gap-2 rounded-2xl px-6 py-3 text-sm font-medium text-white transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                style={{
+                  background: "rgba(255, 255, 255, 0.08)",
+                  backdropFilter: "blur(20px)",
+                  border: "1px solid rgba(255, 255, 255, 0.12)",
+                  boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)"
+                }}
+              >
+                <ChevronLeft className="h-4 w-4" />
+                Anterior
+              </button>
+              
+              <div className="flex items-center gap-3">
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                  <button
+                    key={page}
+                    onClick={() => setCurrentPage(page)}
+                    className={`h-12 w-12 rounded-2xl text-sm font-medium transition-all duration-300 hover:scale-110 ${
+                      currentPage === page ? "text-white" : "text-white/70"
+                    }`}
+                    style={{
+                      background: currentPage === page
+                        ? "linear-gradient(135deg, rgba(16, 185, 129, 0.8), rgba(59, 130, 246, 0.8))"
+                        : "rgba(255, 255, 255, 0.05)",
+                      backdropFilter: "blur(20px)",
+                      border: currentPage === page
+                        ? "1px solid rgba(16, 185, 129, 0.3)"
+                        : "1px solid rgba(255, 255, 255, 0.1)",
+                      boxShadow: currentPage === page
+                        ? "0 8px 32px rgba(16, 185, 129, 0.3)"
+                        : "0 4px 16px rgba(0, 0, 0, 0.1)"
+                    }}
+                  >
+                    {page}
+                  </button>
+                ))}
+              </div>
+              
+              <button
+                onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
+                disabled={currentPage === totalPages}
+                className="flex items-center gap-2 rounded-2xl px-6 py-3 text-sm font-medium text-white transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                style={{
+                  background: "rgba(255, 255, 255, 0.08)",
+                  backdropFilter: "blur(20px)",
+                  border: "1px solid rgba(255, 255, 255, 0.12)",
+                  boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)"
+                }}
+              >
+                Siguiente
+                <ChevronRight className="h-4 w-4" />
+              </button>
             </div>
-
-            <button
-              onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
-              disabled={currentPage === totalPages}
-              className="flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-2 text-sm text-white/70 transition hover:bg-white/10 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              Siguiente
-              <ChevronRight className="h-4 w-4" />
-            </button>
-          </div>
+          </motion.div>
         )}
 
-        {/* Results info */}
-        <div className="mt-6 text-center text-sm text-white/60">
-          Mostrando {startIndex + 1}-{Math.min(startIndex + ITEMS_PER_PAGE, filteredList.length)} de {filteredList.length} productos
-        </div>
+        {/* Glassmorphism Results info */}
+        <motion.div 
+          className="mt-8 text-center rounded-2xl p-4"
+          style={{
+            background: "rgba(255, 255, 255, 0.02)",
+            backdropFilter: "blur(15px)",
+            border: "1px solid rgba(255, 255, 255, 0.05)"
+          }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+        >
+          <p className="text-sm text-white/60">
+            Mostrando {startIndex + 1}-{Math.min(startIndex + ITEMS_PER_PAGE, filteredList.length)} de {" "}
+            <span className="font-medium text-white/80">{filteredList.length} productos exclusivos</span>
+          </p>
+        </motion.div>
       </div>
     </section>
   )
