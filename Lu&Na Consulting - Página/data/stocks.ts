@@ -19,14 +19,14 @@ export type StockItem = {
 }
 
 export const stocks: StockItem[] = [
-  // COCHES DE LUJO
+  // COCHES DE LUJO (19 items)
   {
     slug: "ferrari-collection",
     title: "Ferrari Collection",
     category: "Coches de lujo",
     price: null,
     currency: "EUR",
-    short: "Exclusiva colección de Ferrari disponible. Modelos selectos en condiciones impecables.",
+    short: "Exclusiva colección de Ferrari. Superdeportivo de alta gama con ingeniería excepcional y diseño icónico.",
     images: [
       { src: "/images/ferrari-daytona-sp3-grigio.png", alt: "Ferrari rojo en exhibición" },
       { src: "/placeholder-zp9ay.png", alt: "Ferrari detalle frontal" }
@@ -39,7 +39,7 @@ export const stocks: StockItem[] = [
     category: "Coches de lujo",
     price: null,
     currency: "EUR",
-    short: "Impresionante colección Lamborghini. Vehículos de alto rendimiento y diseño excepcional.",
+    short: "Impresionante colección Lamborghini. Vehículos de alto rendimiento con diseño agresivo y tecnología avanzada.",
     images: [
       { src: "/images/lambo-rear-close.jpg", alt: "Lamborghini amarillo" },
       { src: "/images/lambo-rear-34.jpg", alt: "Lamborghini vista posterior" }
@@ -52,7 +52,7 @@ export const stocks: StockItem[] = [
     category: "Coches de lujo",
     price: null,
     currency: "EUR",
-    short: "Lamborghini Urus en configuración premium. El SUV más exclusivo del mercado.",
+    short: "SUV deportivo Lamborghini Urus. El SUV más exclusivo del mercado con 650 CV de potencia.",
     images: [
       { src: "/images/urus-wheel-redrim.jpg", alt: "Lamborghini Urus frontal" },
       { src: "/images/urus-mode-switch.jpg", alt: "Lamborghini Urus lateral" },
@@ -66,7 +66,7 @@ export const stocks: StockItem[] = [
     category: "Coches de lujo",
     price: null,
     currency: "EUR",
-    short: "Selecta colección Porsche. Ingeniería alemana de precisión y diseño atemporal.",
+    short: "Selecta colección Porsche. Ingeniería alemana de precisión con el legendario motor boxer.",
     images: [
       { src: "/images/porsche-front.jpg", alt: "Porsche 911 plateado" },
       { src: "/images/porsche-34.jpg", alt: "Porsche vista frontal" },
@@ -75,15 +75,37 @@ export const stocks: StockItem[] = [
     featured: true,
   },
   {
+    slug: "brabus-g800",
+    title: "Brabus G800",
+    category: "Coches de lujo",
+    price: null,
+    currency: "EUR",
+    short: "Mercedes G-Class modificado por Brabus con 800 CV. El G-Wagon más potente del mundo.",
+    images: [
+      { src: "/black-brabus-g-wagon.png", alt: "Brabus G800 negro" }
+    ],
+  },
+  {
+    slug: "bugatti-exclusive",
+    title: "Bugatti Exclusive",
+    category: "Coches de lujo",
+    price: null,
+    currency: "EUR",
+    short: "Hipercoche Bugatti con ingeniería extraordinaria. Velocidad máxima superior a 400 km/h.",
+    images: [
+      { src: "/placeholder.svg?height=720&width=1280&query=bugatti-hypercar", alt: "Bugatti azul y negro" }
+    ],
+  },
+  {
     slug: "mercedes-benz-s-class",
     title: "Mercedes-Benz S-Class",
     category: "Coches de lujo",
     price: null,
     currency: "EUR",
-    short: "Mercedes-Benz Clase S. El estándar del lujo y la comodidad en sedanes premium.",
+    short: "Sedán de lujo Mercedes-Benz Clase S. El estándar mundial en comodidad y tecnología.",
     images: [
-      { src: "/silver-luxury-sedan.png", alt: "Mercedes S-Class negro" },
-      { src: "/black-luxury-sedan.png", alt: "Mercedes S-Class lateral" }
+      { src: "/silver-luxury-sedan.png", alt: "Mercedes S-Class plateado" },
+      { src: "/black-luxury-sedan.png", alt: "Mercedes S-Class negro" }
     ],
   },
   {
@@ -92,9 +114,20 @@ export const stocks: StockItem[] = [
     category: "Coches de lujo",
     price: null,
     currency: "EUR",
-    short: "Mercedes-Benz GLS. SUV de lujo con capacidad para 7 pasajeros y tecnología avanzada.",
+    short: "SUV de lujo Mercedes-Benz GLS. Capacidad para 7 pasajeros con lujo de clase S.",
     images: [
-      { src: "/images/building-pool-night.jpg", alt: "Mercedes GLS blanco" }
+      { src: "/placeholder.svg?height=720&width=1280&query=mercedes-gls", alt: "Mercedes GLS blanco" }
+    ],
+  },
+  {
+    slug: "mercedes-benz-e-class",
+    title: "Mercedes-Benz E-Class",
+    category: "Coches de lujo",
+    price: null,
+    currency: "EUR",
+    short: "Sedán ejecutivo Mercedes-Benz Clase E. Elegancia y tecnología para el ejecutivo moderno.",
+    images: [
+      { src: "/placeholder.svg?height=720&width=1280&query=mercedes-e-class", alt: "Mercedes E-Class azul" }
     ],
   },
   {
@@ -103,31 +136,20 @@ export const stocks: StockItem[] = [
     category: "Coches de lujo",
     price: null,
     currency: "EUR",
-    short: "Rolls-Royce Cullinan. El pináculo del lujo en SUV con artesanía británica excepcional.",
+    short: "SUV de ultra lujo Rolls-Royce Cullinan. El pináculo del lujo británico con artesanía excepcional.",
     images: [
       { src: "/black-mansory-phantom.png", alt: "Rolls-Royce Cullinan negro" }
     ],
   },
   {
-    slug: "brabus-g800",
-    title: "Brabus G800",
+    slug: "rolls-royce-interior",
+    title: "Rolls-Royce Interior Premium",
     category: "Coches de lujo",
     price: null,
     currency: "EUR",
-    short: "Brabus G800. Mercedes G-Class modificado por Brabus con 800 CV de potencia.",
+    short: "Interior de lujo Rolls-Royce con acabados artesanales y materiales premium.",
     images: [
-      { src: "/black-brabus-g-wagon.png", alt: "Brabus G800 negro" }
-    ],
-  },
-  {
-    slug: "koenigsegg-jesko",
-    title: "Koenigsegg Jesko 2025",
-    category: "Coches de lujo",
-    price: null,
-    currency: "EUR",
-    short: "El pináculo de la ingeniería hypercar. Unidad 2025 blanca exclusiva.",
-    images: [
-      { src: "/white-jesko-hypercar.png", alt: "Koenigsegg Jesko blanco" }
+      { src: "/placeholder.svg?height=720&width=1280&query=rolls-royce-interior", alt: "Interior Rolls-Royce" }
     ],
   },
   {
@@ -136,7 +158,7 @@ export const stocks: StockItem[] = [
     category: "Coches de lujo",
     price: null,
     currency: "EUR",
-    short: "Lexus LX600. SUV de lujo japonés con fiabilidad excepcional y confort premium.",
+    short: "SUV de lujo japonés Lexus LX600. Fiabilidad Toyota con lujo Lexus.",
     images: [
       { src: "/images/lexus-lx600-rear.jpg", alt: "Lexus LX600 blanco" },
       { src: "/images/lexus-lx600-front.jpg", alt: "Lexus LX600 perfil" }
@@ -148,63 +170,230 @@ export const stocks: StockItem[] = [
     category: "Coches de lujo",
     price: null,
     currency: "EUR",
-    short: "Toyota Land Cruiser. Legendario todoterreno con capacidades off-road excepcionales.",
+    short: "Legendario todoterreno Toyota Land Cruiser. Capacidades off-road incomparables.",
     images: [
-      { src: "/images/landcruiser-interior.jpg", alt: "Toyota Land Cruiser blanco" },
+      { src: "/images/landcruiser-interior.jpg", alt: "Toyota Land Cruiser interior" },
       { src: "/images/landcruiser-front.jpg", alt: "Toyota Land Cruiser frontal" }
     ],
   },
-
-  // BIENES RAÍCES
   {
-    slug: "villa-moderna-piscina",
-    title: "Villa Moderna con Piscina",
+    slug: "audi-q8",
+    title: "Audi Q8",
+    category: "Coches de lujo",
+    price: null,
+    currency: "EUR",
+    short: "SUV coupé Audi Q8 con diseño vanguardista y tecnología quattro integral.",
+    images: [
+      { src: "/placeholder.svg?height=720&width=1280&query=audi-q8", alt: "Audi Q8 gris" }
+    ],
+  },
+  {
+    slug: "volkswagen-golf-gti",
+    title: "Volkswagen Golf GTI",
+    category: "Coches de lujo",
+    price: null,
+    currency: "EUR",
+    short: "El icónico hot hatch alemán Golf GTI con prestaciones deportivas legendarias.",
+    images: [
+      { src: "/placeholder.svg?height=720&width=1280&query=golf-gti", alt: "Golf GTI rojo" }
+    ],
+  },
+  {
+    slug: "camiones-daf",
+    title: "Camiones DAF",
+    category: "Coches de lujo",
+    price: null,
+    currency: "EUR",
+    short: "Flota de camiones comerciales DAF para transporte pesado y logística empresarial.",
+    images: [
+      { src: "/images/daf-head.jpg", alt: "Camión DAF" }
+    ],
+  },
+  {
+    slug: "coches-stock-general",
+    title: "Vehículos en Stock",
+    category: "Coches de lujo",
+    price: null,
+    currency: "EUR",
+    short: "Selección diversa de vehículos disponibles en nuestro inventario exclusivo.",
+    images: [
+      { src: "/placeholder.svg?height=720&width=1280&query=luxury-cars-stock", alt: "Coches en stock" }
+    ],
+  },
+  {
+    slug: "interior-lujo-asientos",
+    title: "Interior de Lujo Bicolor",
+    category: "Coches de lujo",
+    price: null,
+    currency: "EUR",
+    short: "Interior de coche de lujo con asientos bicolor rojo y negro, acabados premium.",
+    images: [
+      { src: "/placeholder.svg?height=720&width=1280&query=luxury-car-interior", alt: "Interior lujo bicolor" }
+    ],
+  },
+  {
+    slug: "mercedes-interior-premium",
+    title: "Mercedes-Benz Interior Premium",
+    category: "Coches de lujo",
+    price: null,
+    currency: "EUR",
+    short: "Interior Mercedes-Benz con tecnología de vanguardia y materiales premium.",
+    images: [
+      { src: "/placeholder.svg?height=720&width=1280&query=mercedes-interior", alt: "Interior Mercedes premium" }
+    ],
+  },
+
+  // BIENES RAÍCES (9 items)
+  {
+    slug: "casa-moderna-piscina-noche",
+    title: "Casa Moderna con Piscina Nocturna",
     category: "Bienes raíces",
     price: null,
     currency: "EUR",
-    short: "Espectacular villa moderna con piscina iluminada y vistas panorámicas.",
+    short: "Espectacular casa moderna con piscina iluminada. Arquitectura contemporánea con vistas panorámicas.",
     images: [
-      { src: "/images/pool-night.jpg", alt: "Villa moderna con piscina iluminada" },
+      { src: "/images/pool-night.jpg", alt: "Casa moderna con piscina iluminada" },
       { src: "/images/building-pool-night.jpg", alt: "Vista nocturna piscina moderna" }
     ],
     featured: true,
   },
   {
-    slug: "villa-lujo-nocturna",
-    title: "Villa de Lujo Nocturna",
+    slug: "casa-moderna-piscina-aerea",
+    title: "Casa Moderna - Vista Aérea",
     category: "Bienes raíces",
     price: null,
     currency: "EUR",
-    short: "Elegante villa de lujo con iluminación arquitectónica nocturna destacada.",
+    short: "Impresionante vista aérea de casa moderna con piscina y diseño arquitectónico excepcional.",
     images: [
-      { src: "/images/villa-night.jpg", alt: "Villa de lujo iluminada de noche" }
+      { src: "/placeholder.svg?height=720&width=1280&query=modern-house-aerial", alt: "Vista aérea casa moderna" }
     ],
     featured: true,
   },
   {
-    slug: "residencia-exclusiva",
-    title: "Residencia Exclusiva",
+    slug: "casa-grande-patio",
+    title: "Casa Grande con Patio",
     category: "Bienes raíces",
     price: null,
     currency: "EUR",
-    short: "Residencia exclusiva con diseño contemporáneo y acabados de primera calidad.",
+    short: "Amplia casa familiar con extenso patio. Espacios exteriores perfectamente diseñados.",
     images: [
-      { src: "/placeholder.svg?height=720&width=1280&query=luxury-residence", alt: "Residencia exclusiva" }
+      { src: "/placeholder.svg?height=720&width=1280&query=large-house-patio", alt: "Casa grande con patio" }
+    ],
+  },
+  {
+    slug: "casa-moderna-noche",
+    title: "Casa Moderna de Noche",
+    category: "Bienes raíces",
+    price: null,
+    currency: "EUR",
+    short: "Elegante casa moderna con iluminación arquitectónica nocturna que resalta su diseño.",
+    images: [
+      { src: "/placeholder.svg?height=720&width=1280&query=modern-house-night", alt: "Casa moderna iluminada" }
+    ],
+  },
+  {
+    slug: "casa-noche-residencial",
+    title: "Casa Residencial Nocturna",
+    category: "Bienes raíces",
+    price: null,
+    currency: "EUR",
+    short: "Hermosa residencia con iluminación nocturna que destaca su arquitectura elegante.",
+    images: [
+      { src: "/images/villa-night.jpg", alt: "Casa residencial nocturna" }
+    ],
+  },
+  {
+    slug: "complejo-residencial-costero",
+    title: "Complejo Residencial Costero",
+    category: "Bienes raíces",
+    price: null,
+    currency: "EUR",
+    short: "Exclusivo desarrollo residencial en primera línea de costa con vistas al mar.",
+    images: [
+      { src: "/placeholder.svg?height=720&width=1280&query=coastal-residential", alt: "Complejo costero" }
+    ],
+  },
+  {
+    slug: "edificio-piscina-noche",
+    title: "Edificio con Piscina Nocturna",
+    category: "Bienes raíces",
+    price: null,
+    currency: "EUR",
+    short: "Moderno edificio residencial con piscina iluminada y amenidades de lujo.",
+    images: [
+      { src: "/placeholder.svg?height=720&width=1280&query=building-pool-night", alt: "Edificio con piscina" }
+    ],
+  },
+  {
+    slug: "edificio-piscinas-multiples",
+    title: "Edificio con Múltiples Piscinas",
+    category: "Bienes raíces",
+    price: null,
+    currency: "EUR",
+    short: "Complejo residencial de lujo con múltiples piscinas e instalaciones recreativas.",
+    images: [
+      { src: "/placeholder.svg?height=720&width=1280&query=building-multiple-pools", alt: "Edificio múltiples piscinas" }
+    ],
+  },
+  {
+    slug: "casas-construccion",
+    title: "Casas en Construcción",
+    category: "Bienes raíces",
+    price: null,
+    currency: "EUR",
+    short: "Proyecto de construcción de casas modernas en desarrollo con entrega programada.",
+    images: [
+      { src: "/placeholder.svg?height=720&width=1280&query=houses-construction", alt: "Casas en construcción" }
     ],
   },
 
-  // BIENES
+  // BIENES (24 items)
   {
-    slug: "jet-privado-ejecutivo",
-    title: "Jet Privado Ejecutivo",
+    slug: "avion-alto-rendimiento",
+    title: "Avión de Alto Rendimiento",
     category: "Bienes",
     price: null,
     currency: "USD",
-    short: "Jet privado ejecutivo en impecable estado. Ideal para viajes corporativos y de lujo.",
+    short: "Avión de alto rendimiento para vuelos privados con tecnología aeronáutica avanzada.",
     images: [
-      { src: "/images/airbus-a321.jpg", alt: "Jet privado ejecutivo" }
+      { src: "/images/airbus-a321.jpg", alt: "Avión en pista" }
     ],
     featured: true,
+  },
+  {
+    slug: "jet-privado-blanco",
+    title: "Jet Privado Blanco",
+    category: "Bienes",
+    price: null,
+    currency: "USD",
+    short: "Jet privado ejecutivo color blanco. Ideal para viajes corporativos de alto nivel.",
+    images: [
+      { src: "/placeholder.svg?height=720&width=1280&query=white-private-jet", alt: "Jet privado blanco" }
+    ],
+    featured: true,
+  },
+  {
+    slug: "jet-privado-negro",
+    title: "Jet Privado Negro",
+    category: "Bienes",
+    price: null,
+    currency: "USD",
+    short: "Elegante jet privado negro con configuración VIP y tecnología de navegación avanzada.",
+    images: [
+      { src: "/placeholder.svg?height=720&width=1280&query=black-private-jet", alt: "Jet privado negro" }
+    ],
+    featured: true,
+  },
+  {
+    slug: "interior-jet-privado",
+    title: "Interior Jet Privado de Lujo",
+    category: "Bienes",
+    price: null,
+    currency: "USD",
+    short: "Interior lujoso de jet privado con acabados premium y configuración VIP exclusiva.",
+    images: [
+      { src: "/placeholder.svg?height=720&width=1280&query=private-jet-interior", alt: "Interior jet privado" }
+    ],
   },
   {
     slug: "yate-lujo-premium",
@@ -214,21 +403,54 @@ export const stocks: StockItem[] = [
     currency: "EUR",
     short: "Espectacular yate de lujo con todas las comodidades para navegación exclusiva.",
     images: [
-      { src: "/images/boat-exterior.jpg", alt: "Yate de lujo en puerto" },
-      { src: "/images/boat-exterior-2.jpg", alt: "Vista del yate desde el agua" },
-      { src: "/placeholder-cqkrx.png", alt: "Yate de lujo lateral" }
+      { src: "/images/boat-exterior.jpg", alt: "Yate de lujo" },
+      { src: "/images/boat-exterior-2.jpg", alt: "Vista yate desde agua" },
+      { src: "/placeholder-cqkrx.png", alt: "Yate lateral" }
     ],
     featured: true,
   },
   {
-    slug: "flart-32-motorboat",
-    title: "Flart 32 Hardtop",
+    slug: "barco-blanco-azul",
+    title: "Barco Blanco y Azul",
     category: "Bienes",
     price: null,
     currency: "EUR",
-    short: "Flart 32 sports motorboat, bien mantenido y listo para navegación.",
+    short: "Elegante barco bicolor para excursiones marinas y navegación recreativa.",
     images: [
-      { src: "/images/boat-stand.jpg", alt: "Flart 32 en puerto" }
+      { src: "/placeholder.svg?height=720&width=1280&query=white-blue-boat", alt: "Barco blanco y azul" }
+    ],
+  },
+  {
+    slug: "barco-deportivo",
+    title: "Barco Deportivo",
+    category: "Bienes",
+    price: null,
+    currency: "EUR",
+    short: "Barco especializado para deportes acuáticos con motor de alta potencia.",
+    images: [
+      { src: "/placeholder.svg?height=720&width=1280&query=sport-boat", alt: "Barco deportivo" }
+    ],
+  },
+  {
+    slug: "barco-recreo",
+    title: "Barco de Recreo",
+    category: "Bienes",
+    price: null,
+    currency: "EUR",
+    short: "Barco ideal para actividades recreativas familiares y ocio náutico.",
+    images: [
+      { src: "/placeholder.svg?height=720&width=1280&query=recreational-boat", alt: "Barco de recreo" }
+    ],
+  },
+  {
+    slug: "barcos-puerto",
+    title: "Barcos en Puerto",
+    category: "Bienes",
+    price: null,
+    currency: "EUR",
+    short: "Selección de embarcaciones ubicadas en puerto deportivo con amarre incluido.",
+    images: [
+      { src: "/images/boat-stand.jpg", alt: "Barcos en puerto" }
     ],
   },
   {
@@ -237,9 +459,9 @@ export const stocks: StockItem[] = [
     category: "Bienes",
     price: null,
     currency: "EUR",
-    short: "Exclusiva colección de relojes Rolex. Piezas de colección y modelos limitados.",
+    short: "Exclusiva colección de relojes Rolex. Piezas de inversión y modelos limitados.",
     images: [
-      { src: "/placeholder.svg?height=720&width=1280&query=rolex-watch", alt: "Reloj Rolex dorado" }
+      { src: "/placeholder.svg?height=720&width=1280&query=rolex-collection", alt: "Colección Rolex" }
     ],
   },
   {
@@ -248,9 +470,20 @@ export const stocks: StockItem[] = [
     category: "Bienes",
     price: null,
     currency: "EUR",
-    short: "Exquisito reloj Patek Philippe. Joyería suiza de la más alta calidad y prestigio.",
+    short: "Exquisito reloj Patek Philippe. La cima de la relojería suiza de prestigio.",
     images: [
-      { src: "/placeholder.svg?height=720&width=1280&query=patek-philippe", alt: "Reloj Patek Philippe" }
+      { src: "/placeholder.svg?height=720&width=1280&query=patek-philippe", alt: "Patek Philippe" }
+    ],
+  },
+  {
+    slug: "bolso-piel-cocodrilo",
+    title: "Bolso Piel de Cocodrilo",
+    category: "Bienes",
+    price: null,
+    currency: "EUR",
+    short: "Bolso de lujo fabricado en auténtica piel de cocodrilo con acabados artesanales.",
+    images: [
+      { src: "/placeholder.svg?height=720&width=1280&query=crocodile-leather-bag", alt: "Bolso piel cocodrilo" }
     ],
   },
   {
@@ -259,32 +492,43 @@ export const stocks: StockItem[] = [
     category: "Bienes",
     price: null,
     currency: "EUR",
-    short: "Excavadora Caterpillar 320E en excelente estado. Ideal para proyectos de construcción.",
+    short: "Excavadora Caterpillar 320E en excelente estado para proyectos de construcción.",
     images: [
       { src: "/images/cat-320e.jpg", alt: "Excavadora CAT 320E" }
     ],
   },
   {
-    slug: "sitrak-dumper",
-    title: "Sitrak 8x4 Dumper",
+    slug: "camion-sitrak",
+    title: "Camión SITRAK",
     category: "Bienes",
     price: null,
     currency: "EUR",
-    short: "Camión volquete Sitrak 8x4 resistente para transporte pesado y uso industrial.",
+    short: "Camión de transporte pesado SITRAK para uso industrial y construcción.",
     images: [
-      { src: "/images/sitrak.jpg", alt: "Sitrak 8x4 dumper" },
-      { src: "/images/sitrak-side.jpg", alt: "Vista lateral Sitrak" }
+      { src: "/images/sitrak.jpg", alt: "Camión SITRAK" },
+      { src: "/images/sitrak-side.jpg", alt: "Vista lateral SITRAK" }
     ],
   },
   {
-    slug: "daf-trucks",
-    title: "Camiones DAF",
+    slug: "camion-iveco",
+    title: "Camión Iveco",
     category: "Bienes",
     price: null,
     currency: "EUR",
-    short: "Flota de camiones DAF para transporte comercial y logística empresarial.",
+    short: "Camión comercial Iveco para transporte y logística empresarial profesional.",
     images: [
-      { src: "/images/daf-head.jpg", alt: "Camión DAF" }
+      { src: "/placeholder.svg?height=720&width=1280&query=iveco-truck", alt: "Camión Iveco" }
+    ],
+  },
+  {
+    slug: "patinete-electrico",
+    title: "Patinete Eléctrico Premium",
+    category: "Bienes",
+    price: null,
+    currency: "EUR",
+    short: "Patinete eléctrico de alta gama para movilidad urbana sostenible.",
+    images: [
+      { src: "/placeholder.svg?height=720&width=1280&query=electric-scooter", alt: "Patinete eléctrico" }
     ],
   },
   {
@@ -293,35 +537,167 @@ export const stocks: StockItem[] = [
     category: "Bienes",
     price: null,
     currency: "USD",
-    short: "Diamante de alta calidad con certificación gemológica. Inversión exclusiva.",
+    short: "Diamante de alta calidad con certificación gemológica para inversión exclusiva.",
     images: [
       { src: "/images/diamond.jpg", alt: "Diamante brillante" }
     ],
   },
-
-  // AERONAVES
   {
-    slug: "airbus-a321",
-    title: "Airbus A321-200",
+    slug: "cobre-industrial",
+    title: "Cobre Industrial",
+    category: "Bienes",
+    price: null,
+    currency: "USD",
+    short: "Cobre de grado industrial para proyectos de construcción e inversión en commodities.",
+    images: [
+      { src: "/placeholder.svg?height=720&width=1280&query=industrial-copper", alt: "Cobre industrial" }
+    ],
+  },
+  {
+    slug: "carbon-premium",
+    title: "Carbón Premium",
+    category: "Bienes",
+    price: null,
+    currency: "USD",
+    short: "Carbón de alta calidad para uso industrial y energético. Oportunidad de inversión.",
+    images: [
+      { src: "/placeholder.svg?height=720&width=1280&query=premium-coal", alt: "Carbón premium" }
+    ],
+  },
+  {
+    slug: "campo-olivos",
+    title: "Campo de Olivos",
+    category: "Bienes",
+    price: null,
+    currency: "EUR",
+    short: "Extenso campo de olivos productivo. Inversión agrícola con rentabilidad sostenible.",
+    images: [
+      { src: "/placeholder.svg?height=720&width=1280&query=olive-grove", alt: "Campo de olivos" }
+    ],
+  },
+  {
+    slug: "fabrica-aceite-oliva",
+    title: "Fábrica de Aceite de Oliva",
+    category: "Bienes",
+    price: null,
+    currency: "EUR",
+    short: "Instalación completa para producción de aceite de oliva con maquinaria moderna.",
+    images: [
+      { src: "/placeholder.svg?height=720&width=1280&query=olive-oil-factory", alt: "Fábrica aceite oliva" }
+    ],
+  },
+  {
+    slug: "planta-industrial",
+    title: "Planta Industrial",
+    category: "Bienes",
+    price: null,
+    currency: "EUR",
+    short: "Complejo industrial moderno con infraestructura para múltiples aplicaciones productivas.",
+    images: [
+      { src: "/placeholder.svg?height=720&width=1280&query=industrial-plant", alt: "Planta industrial" }
+    ],
+  },
+  {
+    slug: "planta-petroleo",
+    title: "Planta de Petróleo",
+    category: "Bienes",
+    price: null,
+    currency: "USD",
+    short: "Instalación petrolera con infraestructura completa para refinación y procesamiento.",
+    images: [
+      { src: "/placeholder.svg?height=720&width=1280&query=oil-refinery", alt: "Planta petróleo" }
+    ],
+  },
+  {
+    slug: "estacion-servicio-industrial",
+    title: "Estación de Servicio Industrial",
+    category: "Bienes",
+    price: null,
+    currency: "EUR",
+    short: "Estación de servicio con capacidad industrial para flotas comerciales y transporte pesado.",
+    images: [
+      { src: "/placeholder.svg?height=720&width=1280&query=industrial-gas-station", alt: "Estación servicio" }
+    ],
+  },
+
+  // AERONAVES (3 items separados)
+  {
+    slug: "airbus-a321-comercial",
+    title: "Airbus A321-200 Comercial",
     category: "Aeronaves",
     price: null,
     currency: "USD",
-    short: "Airbus A321-200 en excelentes condiciones para uso charter o línea aérea.",
+    short: "Avión comercial Airbus A321-200 en excelentes condiciones para uso charter o aerolínea.",
     images: [
       { src: "/images/airbus-a321.jpg", alt: "Airbus A321 en pista" }
     ],
   },
-
-  // OTROS
   {
-    slug: "portfolio-diverso",
-    title: "Portfolio Diverso",
+    slug: "jet-ejecutivo-premium",
+    title: "Jet Ejecutivo Premium",
+    category: "Aeronaves",
+    price: null,
+    currency: "USD",
+    short: "Jet privado ejecutivo con configuración premium para vuelos corporativos de largo alcance.",
+    images: [
+      { src: "/placeholder.svg?height=720&width=1280&query=executive-jet", alt: "Jet ejecutivo" }
+    ],
+  },
+  {
+    slug: "aeronave-alto-rendimiento",
+    title: "Aeronave de Alto Rendimiento",
+    category: "Aeronaves",
+    price: null,
+    currency: "USD",
+    short: "Aeronave especializada de alto rendimiento con tecnología aeronáutica de vanguardia.",
+    images: [
+      { src: "/placeholder.svg?height=720&width=1280&query=high-performance-aircraft", alt: "Aeronave alto rendimiento" }
+    ],
+  },
+
+  // OTROS (4 items)
+  {
+    slug: "video-promocional",
+    title: "Material Audiovisual Promocional",
     category: "Otros",
     price: null,
     currency: "EUR",
-    short: "Selección diversa de activos y oportunidades de inversión únicas.",
+    short: "Contenido audiovisual promocional de alta calidad para marketing y presentaciones.",
+    images: [
+      { src: "/placeholder.svg?height=720&width=1280&query=promotional-video", alt: "Material audiovisual" }
+    ],
+  },
+  {
+    slug: "portfolio-diverso",
+    title: "Portfolio de Inversión Diverso",
+    category: "Otros",
+    price: null,
+    currency: "EUR",
+    short: "Selección diversa de activos y oportunidades de inversión únicas y exclusivas.",
     images: [
       { src: "/placeholder.svg?height=720&width=1280&query=investment-portfolio", alt: "Portfolio diverso" }
+    ],
+  },
+  {
+    slug: "activos-especiales",
+    title: "Activos Especiales",
+    category: "Otros",
+    price: null,
+    currency: "EUR",
+    short: "Activos únicos y oportunidades especiales de inversión no clasificadas convencionalmente.",
+    images: [
+      { src: "/placeholder.svg?height=720&width=1280&query=special-assets", alt: "Activos especiales" }
+    ],
+  },
+  {
+    slug: "oportunidades-exclusivas",
+    title: "Oportunidades Exclusivas",
+    category: "Otros",
+    price: null,
+    currency: "EUR",
+    short: "Oportunidades de inversión exclusivas disponibles por tiempo limitado.",
+    images: [
+      { src: "/placeholder.svg?height=720&width=1280&query=exclusive-opportunities", alt: "Oportunidades exclusivas" }
     ],
   }
 ]
