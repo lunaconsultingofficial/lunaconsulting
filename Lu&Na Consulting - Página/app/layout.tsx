@@ -4,6 +4,7 @@ import type { Metadata } from "next"
 import PageTransition from "@/components/page-transition"
 import BackgroundVisual from "@/components/background-visual"
 import { FocusProvider } from "@/components/ui/focus-overlay"
+import LoadingScreen from "@/components/ui/loading-screen"
 
 export const metadata: Metadata = {
   title: "Lu&Na Consulting",
