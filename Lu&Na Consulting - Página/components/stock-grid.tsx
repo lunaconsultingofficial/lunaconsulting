@@ -13,7 +13,7 @@ import { CARS_DEPT_PHONE_E164, CEO_PHONE_E164 } from "@/lib/phones"
 import PriceBadge from "@/components/ui/price-badge"
 import QuickWAButton from "@/components/quick-wa-button"
 import { buildProductMessage } from "@/lib/wa"
-import { Eye } from "lucide-react"
+import { Eye, ChevronLeft, ChevronRight } from "lucide-react"
 import { useImportedStocks } from "@/hooks/use-imported-stocks"
 
 const HIDDEN: StockCategory[] = ["Aircraft", "Commodities"]
@@ -41,6 +41,8 @@ export default function StockGrid() {
   )
 
   const [active, setActive] = useState<(typeof CATEGORIES)[number]>("Todos")
+  const [currentPage, setCurrentPage] = useState(1)
+  const ITEMS_PER_PAGE = 12
 
   const counts = useMemo(() => {
     const map = new Map<string, number>()
@@ -48,10 +50,20 @@ export default function StockGrid() {
     return map
   }, [ALL_VISIBLE])
 
-  const list = useMemo(
+  const filteredList = useMemo(
     () => (active === "Todos" ? ALL_VISIBLE : ALL_VISIBLE.filter((s) => s.category === active)),
     [active, ALL_VISIBLE],
   )
+
+  const totalPages = Math.ceil(filteredList.length / ITEMS_PER_PAGE)
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE
+  const list = filteredList.slice(startIndex, startIndex + ITEMS_PER_PAGE)
+
+  // Reset page when category changes
+  const handleCategoryChange = (category: typeof CATEGORIES[number]) => {
+    setActive(category)
+    setCurrentPage(1)
+  }
 
   return (
     <section id="stocks" className="relative overflow-hidden bg-[#0e1915] py-16 text-white">
@@ -83,7 +95,7 @@ export default function StockGrid() {
           {CATEGORIES.map((c) => (
             <button
               key={c}
-              onClick={() => setActive(c)}
+              onClick={() => handleCategoryChange(c)}
               className={`rounded-full border px-4 py-1.5 text-sm transition ${
                 active === c
                   ? "border-emerald-400/40 bg-emerald-500/15 text-emerald-100"
@@ -168,6 +180,50 @@ export default function StockGrid() {
               </motion.div>
             )
           })}
+        </div>
+
+        {/* Pagination */}
+        {totalPages > 1 && (
+          <div className="mt-12 flex items-center justify-center gap-4">
+            <button
+              onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
+              disabled={currentPage === 1}
+              className="flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-2 text-sm text-white/70 transition hover:bg-white/10 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              <ChevronLeft className="h-4 w-4" />
+              Anterior
+            </button>
+
+            <div className="flex items-center gap-2">
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                <button
+                  key={page}
+                  onClick={() => setCurrentPage(page)}
+                  className={`h-10 w-10 rounded-full text-sm transition ${
+                    currentPage === page
+                      ? "bg-emerald-600 text-white"
+                      : "border border-white/20 bg-white/5 text-white/70 hover:bg-white/10"
+                  }`}
+                >
+                  {page}
+                </button>
+              ))}
+            </div>
+
+            <button
+              onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
+              disabled={currentPage === totalPages}
+              className="flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-2 text-sm text-white/70 transition hover:bg-white/10 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              Siguiente
+              <ChevronRight className="h-4 w-4" />
+            </button>
+          </div>
+        )}
+
+        {/* Results info */}
+        <div className="mt-6 text-center text-sm text-white/60">
+          Mostrando {startIndex + 1}-{Math.min(startIndex + ITEMS_PER_PAGE, filteredList.length)} de {filteredList.length} productos
         </div>
       </div>
     </section>
