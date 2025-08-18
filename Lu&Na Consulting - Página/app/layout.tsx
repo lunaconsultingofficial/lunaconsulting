@@ -17,6 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="es" suppressHydrationWarning>
       <body className="min-h-screen bg-[#0b1411] text-white antialiased">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+          <LoadingScreen duration={1500} />
           <BackgroundVisual />
           <FocusProvider>
             <PageTransition>{children}</PageTransition>
