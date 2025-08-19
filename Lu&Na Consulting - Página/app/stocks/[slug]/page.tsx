@@ -1,6 +1,6 @@
 "use client"
 
-import { useMemo } from "react"
+import { useMemo, use } from "react"
 import MediaGallery from "@/components/media-gallery"
 import { stocks as baseStocks } from "@/data/stocks"
 import LetterboxImage from "@/components/ui/letterbox-image"
@@ -13,7 +13,7 @@ import QuickWAButton from "@/components/quick-wa-button"
 import { buildProductMessage } from "@/lib/wa"
 import { useImportedStocks } from "@/hooks/use-imported-stocks"
 
-export default function StockDetail({ params }: { params: { slug: string } }) {
+export default function StockDetail({ params }: { params: Promise<{ slug: string }> }) {
   const { items: imported } = useImportedStocks()
   const all = useMemo(() => {
     const map = new Map<string, any>()
