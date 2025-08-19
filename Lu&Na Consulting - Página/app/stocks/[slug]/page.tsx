@@ -14,6 +14,7 @@ import { buildProductMessage } from "@/lib/wa"
 import { useImportedStocks } from "@/hooks/use-imported-stocks"
 
 export default function StockDetail({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = use(params)
   const { items: imported } = useImportedStocks()
   const all = useMemo(() => {
     const map = new Map<string, any>()
@@ -22,7 +23,7 @@ export default function StockDetail({ params }: { params: Promise<{ slug: string
     return Array.from(map.values())
   }, [imported])
 
-  const item = all.find((s) => s.slug === params.slug)
+  const item = all.find((s) => s.slug === slug)
   if (!item) {
     return (
       <section className="bg-[#0b1411] py-16 text-white">
